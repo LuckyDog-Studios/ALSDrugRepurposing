@@ -2,4 +2,6 @@ File	Original_Genes	Mapped_Symbols	Format
 GSE833_DE_results.csv	7070	551	affy_probe
 GSE76220_DE_results.csv	25856	9694	entrez
 GSE112676_DE_results.csv	29830	17407	illumina_probe
+GSE118336_annotated_de_FUS_H517D_Mutant_vs_Control.csv	32670	31043	symbol
+GSE118336_annotated_de_FUS_Heterozygous_vs_Control.csv	32670	31043	symbol
 GSE124439_DE_results.csv	20021	20021	symbol

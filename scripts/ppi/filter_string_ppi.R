@@ -599,8 +599,8 @@ de_files <- c(
   "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE833\\GSE833_DE_results.csv",
   "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE76220\\GSE76220_DE_results.csv",
   "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE112676\\GSE112676_DE_results.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE118336\\GSE118336_DE_FUS_H517D_Mutant_vs_Control.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE118336\\GSE118336_DE_FUS_Heterozygous_vs_Control.csv",
+  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE118336\\GSE118336_annotated_de_FUS_H517D_Mutant_vs_Control.csv",
+  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE118336\\GSE118336_annotated_de_FUS_Heterozygous_vs_Control.csv",
   "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE124439\\GSE124439_DE_results.csv"
 )
 
