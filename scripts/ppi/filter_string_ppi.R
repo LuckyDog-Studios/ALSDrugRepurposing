@@ -1,612 +1,300 @@
 #!/usr/bin/env Rscript
 
-# Script to process differential expression results, identify gene annotation format,
-# map to gene symbols, and filter STRING PPI network
+# SIMPLE PPI FILTERING SCRIPT WITH NETWORK SUMMARY
+# Usage: Rscript filter_ppi.R
 
-# Load required libraries
-library(dplyr)
 library(data.table)
-library(annotate)
-library(org.Hs.eg.db)
+library(igraph)
 
-# Function to clean file paths (remove quotes and trim whitespace)
-clean_file_path <- function(path) {
-  # Remove quotes
-  path <- gsub('^"|"$', '', path)
-  path <- gsub("^'|'$", '', path)
-  # Trim whitespace
-  path <- trimws(path)
-  # Convert to absolute path if relative
-  if(!grepl("^[A-Za-z]:|^/", path)) {
-    path <- normalizePath(path, mustWork = FALSE)
-  }
-  return(path)
+# ========== USER INPUT ==========
+cat("SIMPLE PPI FILTERING TOOL\n")
+cat("===========================\n\n")
+
+# File paths (you can change these if needed)
+de_file <- "C:/Users/noahm/PycharmProjects/MarbleProject/de_results/combined/combined_DE_results_annotated_cleaned.csv"
+ppi_file <- "C:/Users/noahm/PycharmProjects/MarbleProject/datasets/ppi/string_interactions.tsv"
+
+# Ask for thresholds
+cat("Enter filtering thresholds:\n")
+adj_p <- as.numeric(readline("adj.P.Val threshold (e.g., 0.05): "))
+logfc <- as.numeric(readline("Minimum |logFC| (e.g., 0.5): "))
+
+use_datasets <- readline("Filter by minimum datasets? (y/n): ")
+if(tolower(use_datasets) == "y") {
+  min_datasets <- as.integer(readline("Minimum datasets (1-5): "))
+} else {
+  min_datasets <- NULL
 }
 
-# Function to identify annotation format - IMPROVED
-identify_annotation_format <- function(gene_ids) {
-  # Take a sample to identify format
-  sample_ids <- head(gene_ids, 100)
-  
-  # Check for common formats
-  format_info <- list()
-  
-  # Check if they look like Ensembl IDs (starting with ENS)
-  ensembl_pattern <- grepl("^ENS[A-Z]*[GT]\\d+|^ENST\\d+|^ENSP\\d+", sample_ids, ignore.case = TRUE)
-  format_info$ensembl <- sum(ensembl_pattern, na.rm = TRUE)
-  
-  # Check if they look like Entrez IDs (all numeric)
-  entrez_pattern <- grepl("^\\d+$", sample_ids)
-  format_info$entrez <- sum(entrez_pattern, na.rm = TRUE)
-  
-  # Check if they look like RefSeq IDs (starting with NM_ or NR_)
-  refseq_pattern <- grepl("^[NXY]M_|^NR_|^NP_|^XP_|^YP_", sample_ids)
-  format_info$refseq <- sum(refseq_pattern, na.rm = TRUE)
-  
-  # Check if they're already gene symbols
-  # More permissive pattern for gene symbols
-  symbol_pattern <- grepl("^[A-Za-z][A-Za-z0-9-]*$", sample_ids) & 
-    nchar(sample_ids) > 1 & nchar(sample_ids) < 30
-  format_info$symbol <- sum(symbol_pattern, na.rm = TRUE)
-  
-  # Check if they look like Affymetrix probes
-  affy_pattern <- grepl("_at$|_st$|_x_at$|_s_at$|_a_at$", sample_ids)
-  format_info$affy_probe <- sum(affy_pattern, na.rm = TRUE)
-  
-  # Check if they look like Illumina probes
-  illumina_pattern <- grepl("^ILMN_\\d+", sample_ids, ignore.case = TRUE)
-  format_info$illumina_probe <- sum(illumina_pattern, na.rm = TRUE)
-  
-  # Check for other probe patterns
-  other_probe_pattern <- grepl("^[A-Z]{2,}\\d+_|^[A-Z]\\d+_|^[A-Z]{2,}\\d+$", sample_ids)
-  format_info$other_probe <- sum(other_probe_pattern, na.rm = TRUE)
-  
-  # Determine the most likely format
-  max_hits <- max(unlist(format_info))
-  likely_format <- names(format_info)[which(unlist(format_info) == max_hits)][1]
-  
-  cat("Annotation format detection results:\n")
-  for(fmt in names(format_info)) {
-    if(format_info[[fmt]] > 0) {
-      cat(paste0("  ", fmt, ": ", format_info[[fmt]], " hits\n"))
-    }
-  }
-  cat(paste0("\nMost likely format: ", likely_format, "\n"))
-  
-  return(likely_format)
+output_name <- readline("Output directory name: ")
+output_dir <- paste0("./", output_name)
+
+# ========== LOAD DATA ==========
+cat("\nLoading data...\n")
+de_data <- fread(de_file)
+ppi_data <- fread(ppi_file)
+
+# ========== FILTER DE GENES ==========
+cat("Filtering DE genes...\n")
+filtered_de <- de_data[adj.P.Val < adj_p & abs(logFC) > logfc, ]
+
+if(!is.null(min_datasets) && "n_datasets" %in% colnames(filtered_de)) {
+  filtered_de <- filtered_de[n_datasets >= min_datasets, ]
 }
 
-# Function to map IDs to gene symbols - IMPROVED
-map_to_symbols <- function(gene_ids, format_type, file_name = "") {
-  # Ensure gene_ids are character
-  gene_ids <- as.character(gene_ids)
-  
-  # Remove any duplicates
-  unique_ids <- unique(gene_ids)
-  cat(paste0("Mapping ", length(unique_ids), " unique IDs...\n"))
-  
-  # Special handling for probe IDs based on file name patterns
-  if(format_type %in% c("affy_probe", "illumina_probe", "other_probe") || 
-     grepl("probe", format_type)) {
-    return(map_probe_ids(gene_ids, format_type, file_name))
-  }
-  
-  if(format_type == "entrez") {
-    # Map Entrez IDs to symbols
-    mapped <- tryCatch({
-      select(org.Hs.eg.db,
-             keys = gene_ids,
-             columns = c("SYMBOL", "ENTREZID"),
-             keytype = "ENTREZID")
-    }, error = function(e) {
-      cat("Error in mapping Entrez IDs:", e$message, "\n")
-      return(NULL)
-    })
-    
-    if(!is.null(mapped)) {
-      mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-      mapped <- mapped[!duplicated(mapped$ENTREZID), ]
-    }
-    return(mapped)
-    
-  } else if(format_type == "ensembl") {
-    # First try Ensembl gene IDs
-    mapped <- tryCatch({
-      # Try without version numbers
-      clean_ids <- sub("\\..*$", "", gene_ids)
-      select(org.Hs.eg.db,
-             keys = clean_ids,
-             columns = c("SYMBOL", "ENSEMBL"),
-             keytype = "ENSEMBL")
-    }, error = function(e) {
-      cat("Error mapping as Ensembl gene IDs:", e$message, "\n")
-      return(NULL)
-    })
-    
-    if(!is.null(mapped) && nrow(mapped) > 0) {
-      mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-      return(mapped)
-    }
-    
-    # If that fails, try other possibilities
-    cat("Trying alternative mappings...\n")
-    
-    # Try if they might be transcript IDs
-    if(any(grepl("^ENST", gene_ids))) {
-      cat("Detected ENST (transcript) IDs. Trying to map via transcript...\n")
-      mapped <- tryCatch({
-        select(org.Hs.eg.db,
-               keys = sub("\\..*$", "", gene_ids),
-               columns = c("SYMBOL", "ENSEMBLTRANS"),
-               keytype = "ENSEMBLTRANS")
-      }, error = function(e) NULL)
-      
-      if(!is.null(mapped) && nrow(mapped) > 0) {
-        colnames(mapped)[colnames(mapped) == "ENSEMBLTRANS"] <- "ENSEMBL"
-        mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-        return(mapped)
-      }
-    }
-    
-    return(NULL)
-    
-  } else if(format_type == "refseq") {
-    mapped <- tryCatch({
-      select(org.Hs.eg.db,
-             keys = gene_ids,
-             columns = c("SYMBOL", "REFSEQ"),
-             keytype = "REFSEQ")
-    }, error = function(e) {
-      cat("Error in mapping RefSeq IDs:", e$message, "\n")
-      return(NULL)
-    })
-    
-    if(!is.null(mapped)) {
-      mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-      mapped <- mapped[!duplicated(mapped$REFSEQ), ]
-    }
-    return(mapped)
-    
-  } else if(format_type == "symbol") {
-    # Already symbols, just create a data frame
-    mapped <- data.frame(SYMBOL = gene_ids, 
-                         ORIGINAL_ID = gene_ids,
-                         stringsAsFactors = FALSE)
-    # Remove any rows where SYMBOL is NA or empty
-    mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-    return(mapped)
-    
+sig_genes <- unique(filtered_de$SYMBOL)
+sig_genes <- sig_genes[!is.na(sig_genes) & sig_genes != ""]
+
+cat(paste0("Found ", length(sig_genes), " significant genes\n"))
+
+# ========== FILTER PPI NETWORK ==========
+cat("Filtering PPI network...\n")
+
+# Find gene columns in PPI data
+if(all(c("node1", "node2") %in% colnames(ppi_data))) {
+  gene1_col <- "node1"
+  gene2_col <- "node2"
+} else if(all(c("gene1", "gene2") %in% colnames(ppi_data))) {
+  gene1_col <- "gene1"
+  gene2_col <- "gene2"
+} else {
+  # Try to guess
+  possible_cols <- colnames(ppi_data)[sapply(ppi_data, function(x) 
+    all(grepl("^[A-Z][A-Z0-9-]+$", head(x, 20))))]
+  if(length(possible_cols) >= 2) {
+    gene1_col <- possible_cols[1]
+    gene2_col <- possible_cols[2]
   } else {
-    cat(paste0("Unknown format type: ", format_type, "\n"))
-    
-    # Last resort: check if they might be symbols
-    symbol_test <- gene_ids[grepl("^[A-Za-z][A-Za-z0-9-]*$", gene_ids) & 
-                              nchar(gene_ids) > 1 & nchar(gene_ids) < 30]
-    
-    if(length(symbol_test) > length(gene_ids) * 0.3) {
-      cat("Most IDs look like gene symbols. Treating as symbols.\n")
-      mapped <- data.frame(SYMBOL = gene_ids, 
-                           ORIGINAL_ID = gene_ids,
-                           stringsAsFactors = FALSE)
-      mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-      return(mapped)
-    }
-    
-    return(NULL)
+    stop("Cannot find gene columns in PPI file")
   }
 }
 
-# Special function for probe IDs
-map_probe_ids <- function(gene_ids, format_type, file_name = "") {
-  cat("Mapping probe IDs...\n")
-  
-  # Try different mapping strategies
-  
-  # Strategy 1: Try to extract gene symbols from probe names
-  # Some probes have embedded gene symbols
-  if(format_type == "affy_probe" || grepl("_at$", gene_ids[1])) {
-    cat("Detected Affymetrix-style probes.\n")
-    
-    # Install and try hgu133plus2.db if available
-    if(requireNamespace("hgu133plus2.db", quietly = TRUE)) {
-      cat("Using hgu133plus2.db for Affymetrix mapping...\n")
-      library(hgu133plus2.db)
-      mapped <- tryCatch({
-        select(hgu133plus2.db,
-               keys = gene_ids,
-               columns = c("SYMBOL"),
-               keytype = "PROBEID")
-      }, error = function(e) NULL)
-      
-      if(!is.null(mapped) && nrow(mapped) > 0) {
-        mapped$ORIGINAL_ID <- mapped$PROBEID
-        mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-        return(mapped)
-      }
-    }
-    
-    # Try to guess from file name
-    if(grepl("GSE833", file_name)) {
-      cat("GSE833 is likely Affymetrix U133A. Trying alternative mapping...\n")
-      # For GSE833, try to extract numeric part
-      numeric_ids <- gsub("[^0-9]", "", gene_ids)
-      numeric_ids <- numeric_ids[nchar(numeric_ids) > 4]
-      
-      if(length(numeric_ids) > 0) {
-        cat("Trying to map numeric IDs as Entrez...\n")
-        mapped <- map_to_symbols(numeric_ids, "entrez")
-        if(!is.null(mapped)) {
-          # Match back to original IDs
-          result <- data.frame(
-            SYMBOL = mapped$SYMBOL,
-            ORIGINAL_ID = gene_ids[match(mapped$ENTREZID, numeric_ids)],
-            stringsAsFactors = FALSE
-          )
-          result <- result[!is.na(result$ORIGINAL_ID), ]
-          return(result)
-        }
-      }
-    }
-  }
-  
-  # Strategy 2: For Illumina probes
-  if(format_type == "illumina_probe" || grepl("^ILMN_", gene_ids[1])) {
-    cat("Detected Illumina probes.\n")
-    
-    # Try to map using the illuminaHumanv4.db or similar
-    if(requireNamespace("illuminaHumanv4.db", quietly = TRUE)) {
-      cat("Using illuminaHumanv4.db for Illumina mapping...\n")
-      library(illuminaHumanv4.db)
-      mapped <- tryCatch({
-        select(illuminaHumanv4.db,
-               keys = gene_ids,
-               columns = c("SYMBOL"),
-               keytype = "PROBEID")
-      }, error = function(e) NULL)
-      
-      if(!is.null(mapped) && nrow(mapped) > 0) {
-        mapped$ORIGINAL_ID <- mapped$PROBEID
-        mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-        return(mapped)
-      }
-    }
-  }
-  
-  # Strategy 3: Try all keytypes in org.Hs.eg.db
-  cat("Trying all keytypes in org.Hs.eg.db...\n")
-  keytypes <- keytypes(org.Hs.eg.db)
-  
-  for(ktype in keytypes) {
-    # Skip some that are unlikely
-    if(ktype %in% c("GO", "GOALL", "PATH", "PMID", "ONTOLOGY", "ONTOLOGYALL")) next
-    
-    mapped <- tryCatch({
-      # Test with first 20 IDs
-      test_result <- select(org.Hs.eg.db,
-                           keys = head(gene_ids, 20),
-                           columns = c("SYMBOL"),
-                           keytype = ktype)
-      if(nrow(test_result) > 0 && sum(!is.na(test_result$SYMBOL)) > 5) {
-        # If good match, map all
-        select(org.Hs.eg.db,
-               keys = gene_ids,
-               columns = c("SYMBOL", ktype),
-               keytype = ktype)
-      } else {
-        NULL
-      }
-    }, error = function(e) NULL)
-    
-    if(!is.null(mapped) && nrow(mapped) > 0) {
-      mapped <- mapped[!is.na(mapped$SYMBOL) & mapped$SYMBOL != "", ]
-      cat(paste0("Successfully mapped using keytype: ", ktype, "\n"))
-      colnames(mapped)[colnames(mapped) == ktype] <- "ORIGINAL_ID"
-      return(mapped[, c("SYMBOL", "ORIGINAL_ID")])
-    }
-  }
-  
-  cat("Warning: Could not map probe IDs\n")
-  return(NULL)
-}
+# Filter network
+filtered_ppi <- ppi_data[get(gene1_col) %in% sig_genes & get(gene2_col) %in% sig_genes, ]
 
-# Main processing function - FIXED STRING COLUMN HANDLING
-process_files <- function(file_paths, string_network_path, output_dir = "./results") {
+# ========== CREATE NETWORK SUMMARY ==========
+create_network_summary <- function(filtered_ppi, gene1_col, gene2_col, sig_genes, output_dir) {
+  cat("\nCreating network summary...\n")
   
-  # Create output directory if it doesn't exist
-  if(!dir.exists(output_dir)) {
-    dir.create(output_dir, recursive = TRUE)
-  }
-  
-  # Clean file paths
-  string_network_path <- clean_file_path(string_network_path)
-  
-  # Load STRING network
-  cat(paste0("Loading STRING network from: ", string_network_path, "\n"))
-  
-  # Check if file exists
-  if(!file.exists(string_network_path)) {
-    stop(paste0("STRING network file not found: ", string_network_path))
-  }
-  
-  # Read STRING network
-  string_network <- fread(string_network_path)
-  cat(paste0("STRING network loaded: ", nrow(string_network), " interactions\n"))
-  
-  # Show column names for debugging
-  cat("Columns in STRING network:\n")
-  print(colnames(string_network))
-  
-  # FIXED: Use the correct columns for gene symbols
-  # Based on your description, the gene symbols are in '#node1' and 'node2'
-  # Remove the '#' from '#node1' for easier handling
-  colnames(string_network) <- gsub("^#", "", colnames(string_network))
-  
-  # Check if we have the expected columns
-  if(all(c("node1", "node2") %in% colnames(string_network))) {
-    # Rename to gene1 and gene2 for consistency
-    colnames(string_network)[colnames(string_network) == "node1"] <- "gene1"
-    colnames(string_network)[colnames(string_network) == "node2"] <- "gene2"
-    cat("Successfully identified gene symbol columns: node1 -> gene1, node2 -> gene2\n")
-  } else {
-    # Fallback: look for any columns that might contain gene symbols
-    cat("Looking for gene symbol columns...\n")
-    
-    # Check each column for gene symbol patterns
-    gene_cols <- c()
-    for(col in colnames(string_network)) {
-      # Sample some values
-      sample_vals <- head(string_network[[col]], 20)
-      # Check if they look like gene symbols
-      if(all(grepl("^[A-Z][A-Z0-9-]+$", sample_vals) & nchar(sample_vals) > 1 & nchar(sample_vals) < 20)) {
-        gene_cols <- c(gene_cols, col)
-      }
-    }
-    
-    if(length(gene_cols) >= 2) {
-      colnames(string_network)[colnames(string_network) == gene_cols[1]] <- "gene1"
-      colnames(string_network)[colnames(string_network) == gene_cols[2]] <- "gene2"
-      cat(paste0("Found gene columns: '", gene_cols[1], "' -> 'gene1', '", gene_cols[2], "' -> 'gene2'\n"))
-    } else {
-      stop("Could not identify gene symbol columns in STRING network.")
-    }
-  }
-  
-  # Show first few rows to verify
-  cat("\nFirst few interactions in STRING network:\n")
-  print(head(string_network[, c("gene1", "gene2")]))
-  
-  # Process each file
-  all_symbols <- c()
-  file_results <- list()
-  
-  for(i in seq_along(file_paths)) {
-    file_path <- clean_file_path(file_paths[i])
-    file_name <- basename(file_path)
-    
-    cat(paste0("\n", strrep("=", 60), "\n"))
-    cat(paste0("Processing file ", i, "/", length(file_paths), ": ", file_name, "\n"))
-    cat(paste0(strrep("=", 60), "\n"))
-    
-    # Check if file exists
-    if(!file.exists(file_path)) {
-      cat(paste0("Warning: File not found: ", file_path, "\nSkipping...\n"))
-      next
-    }
-    
-    # Read the file
-    tryCatch({
-      # Try reading with auto-detection
-      cat("Reading file...\n")
-      
-      # Check file size first
-      file_size <- file.info(file_path)$size
-      if(file_size > 100000000) { # > 100MB
-        cat("Large file detected. Reading first 100,000 rows...\n")
-        de_data <- fread(file_path, nrows = 100000)
-      } else {
-        de_data <- fread(file_path)
-      }
-      
-      cat(paste0("Successfully read file. Columns: ", paste(colnames(de_data), collapse = ", "), "\n"))
-      cat(paste0("Rows: ", nrow(de_data), "\n"))
-      
-      # Get gene IDs from first column
-      gene_ids <- de_data[[1]]
-      cat(paste0("Total genes in file: ", length(gene_ids), "\n"))
-      cat(paste0("Sample IDs: ", paste(head(gene_ids, 10), collapse = ", "), "\n"))
-      
-      # Identify annotation format
-      format_type <- identify_annotation_format(gene_ids)
-      
-      # Map to symbols
-      mapped_symbols <- map_to_symbols(gene_ids, format_type, file_name)
-      
-      if(is.null(mapped_symbols) || nrow(mapped_symbols) == 0) {
-        cat("Warning: No symbols could be mapped for this file\n")
-        
-        # Try alternative: check other columns
-        cat("Checking other columns for gene symbols...\n")
-        for(col_idx in 2:min(6, ncol(de_data))) {
-          col_name <- colnames(de_data)[col_idx]
-          test_values <- head(de_data[[col_idx]], 50)
-          
-          # Count valid gene symbols
-          valid_symbols <- sum(grepl("^[A-Za-z][A-Za-z0-9-]*$", test_values) & 
-                                nchar(test_values) > 1 & nchar(test_values) < 30 & 
-                                !grepl("^\\d+$", test_values), na.rm = TRUE)
-          
-          if(valid_symbols > 10) {
-            cat(paste0("Found ", valid_symbols, " valid symbols in column '", col_name, "'\n"))
-            mapped_symbols <- data.frame(
-              SYMBOL = de_data[[col_idx]], 
-              ORIGINAL_ID = de_data[[1]],
-              stringsAsFactors = FALSE
-            )
-            # Clean up
-            mapped_symbols$SYMBOL[!grepl("^[A-Za-z][A-Za-z0-9-]*$", mapped_symbols$SYMBOL)] <- NA
-            mapped_symbols$SYMBOL[nchar(mapped_symbols$SYMBOL) < 2 | nchar(mapped_symbols$SYMBOL) > 30] <- NA
-            mapped_symbols <- mapped_symbols[!is.na(mapped_symbols$SYMBOL) & mapped_symbols$SYMBOL != "", ]
-            break
-          }
-        }
-      }
-      
-      if(is.null(mapped_symbols) || nrow(mapped_symbols) == 0) {
-        cat("Skipping this file - no mappable gene symbols found\n")
-        next
-      }
-      
-      # Clean mapped symbols
-      mapped_symbols_clean <- unique(mapped_symbols$SYMBOL[!is.na(mapped_symbols$SYMBOL) & 
-                                                             mapped_symbols$SYMBOL != ""])
-      cat(paste0("Successfully mapped to ", length(mapped_symbols_clean), " unique gene symbols\n"))
-      
-      # Add to total symbols list
-      all_symbols <- unique(c(all_symbols, mapped_symbols_clean))
-      
-      # Save mapped results
-      safe_name <- gsub("[^A-Za-z0-9._-]", "_", file_name)
-      output_file <- file.path(output_dir, paste0("mapped_", sub("\\.(csv|tsv|txt)$", "", safe_name), ".tsv"))
-      write.table(mapped_symbols, output_file, sep = "\t", row.names = FALSE, quote = FALSE)
-      cat(paste0("Mapped results saved to: ", output_file, "\n"))
-      
-      # Store for later use
-      file_results[[file_name]] <- list(
-        original_count = length(gene_ids),
-        mapped_count = length(mapped_symbols_clean),
-        mapped_symbols = mapped_symbols_clean,
-        format_type = format_type
-      )
-      
-    }, error = function(e) {
-      cat(paste0("Error processing file ", file_name, ": ", e$message, "\n"))
-    })
-  }
-  
-  cat(paste0("\n", strrep("=", 60), "\n"))
-  cat("SUMMARY\n")
-  cat(paste0(strrep("=", 60), "\n"))
-  cat(paste0("Total unique gene symbols across all files: ", length(all_symbols), "\n"))
-  
-  # Filter STRING network
-  if(length(all_symbols) > 0 && all(c("gene1", "gene2") %in% colnames(string_network))) {
-    cat("\nFiltering STRING network...\n")
-    cat(paste0("Gene symbols available: ", length(all_symbols), "\n"))
-    cat(paste0("Sample symbols: ", paste(head(sort(all_symbols)), collapse = ", "), "\n"))
-    
-    # Show what's in the STRING network
-    cat("Sample from STRING network gene1 column: ", paste(head(unique(string_network$gene1)), collapse = ", "), "\n")
-    cat("Sample from STRING network gene2 column: ", paste(head(unique(string_network$gene2)), collapse = ", "), "\n")
-    
-    # Check for overlap
-    overlap_gene1 <- sum(string_network$gene1 %in% all_symbols)
-    overlap_gene2 <- sum(string_network$gene2 %in% all_symbols)
-    cat(paste0("Overlap - gene1 in our symbols: ", overlap_gene1, " (", 
-               round(100 * overlap_gene1 / nrow(string_network), 1), "%)\n"))
-    cat(paste0("Overlap - gene2 in our symbols: ", overlap_gene2, " (", 
-               round(100 * overlap_gene2 / nrow(string_network), 1), "%)\n"))
-    
-    # Filter for interactions where both genes are in our gene list
-    filtered_network <- string_network %>%
-      filter(gene1 %in% all_symbols & gene2 %in% all_symbols)
-    
-    cat(paste0("Filtered STRING network: ", nrow(filtered_network), 
-               " interactions (", round(100 * nrow(filtered_network) / nrow(string_network), 2), 
-               "% of original)\n"))
-    
-    if(nrow(filtered_network) > 0) {
-      # Save filtered network
-      filtered_network_file <- file.path(output_dir, "filtered_string_network.tsv")
-      write.table(filtered_network, filtered_network_file, sep = "\t", 
-                  row.names = FALSE, quote = FALSE)
-      cat(paste0("Filtered STRING network saved to: ", filtered_network_file, "\n"))
-      
-      # Also save a simple edge list
-      edge_list <- filtered_network[, c("gene1", "gene2")]
-      edge_list_file <- file.path(output_dir, "ppi_edge_list.tsv")
-      write.table(edge_list, edge_list_file, sep = "\t", 
-                  row.names = FALSE, quote = FALSE, col.names = FALSE)
-      cat(paste0("PPI edge list saved to: ", edge_list_file, "\n"))
-      
-      # Count unique genes in the filtered network
-      unique_genes_filtered <- unique(c(filtered_network$gene1, filtered_network$gene2))
-      cat(paste0("Unique genes in filtered network: ", length(unique_genes_filtered), 
-                 " (", round(100 * length(unique_genes_filtered) / length(all_symbols), 1), "% of input genes)\n"))
-    } else {
-      cat("Warning: No interactions found in STRING network for these genes.\n")
-      cat("This could mean:\n")
-      cat("1. The gene symbols in your data don't match STRING's symbols\n")
-      cat("2. There are truly no interactions between these genes in STRING\n")
-      
-      # Try case-insensitive matching
-      cat("\nTrying case-insensitive matching...\n")
-      string_genes_upper <- toupper(string_network$gene1)
-      our_symbols_upper <- toupper(all_symbols)
-      
-      filtered_network_case <- string_network %>%
-        filter(toupper(gene1) %in% our_symbols_upper & toupper(gene2) %in% our_symbols_upper)
-      
-      if(nrow(filtered_network_case) > 0) {
-        cat(paste0("Found ", nrow(filtered_network_case), " interactions with case-insensitive matching\n"))
-        filtered_network_file <- file.path(output_dir, "filtered_string_network_case_insensitive.tsv")
-        write.table(filtered_network_case, filtered_network_file, sep = "\t", 
-                    row.names = FALSE, quote = FALSE)
-        cat(paste0("Case-insensitive filtered network saved to: ", filtered_network_file, "\n"))
-      }
-    }
-    
-  } else {
-    cat("\nCannot filter STRING network.\n")
-    if(!all(c("gene1", "gene2") %in% colnames(string_network))) {
-      cat("Missing gene1 or gene2 columns in STRING network.\n")
-      cat("Available columns: ", paste(colnames(string_network), collapse = ", "), "\n")
-    }
-    if(length(all_symbols) == 0) {
-      cat("No gene symbols were successfully mapped.\n")
-    }
-  }
-  
-  # Save the list of all symbols
-  symbols_file <- file.path(output_dir, "all_gene_symbols.txt")
-  writeLines(sort(all_symbols), symbols_file)
-  cat(paste0("Gene symbols list saved to: ", symbols_file, "\n"))
-  
-  # Save summary statistics
-  summary_file <- file.path(output_dir, "mapping_summary.tsv")
-  summary_df <- data.frame(
-    File = names(file_results),
-    Original_Genes = sapply(file_results, function(x) x$original_count),
-    Mapped_Symbols = sapply(file_results, function(x) x$mapped_count),
-    Format = sapply(file_results, function(x) x$format_type),
+  # Create igraph object
+  edges <- data.frame(
+    from = filtered_ppi[[gene1_col]],
+    to = filtered_ppi[[gene2_col]],
     stringsAsFactors = FALSE
   )
-  write.table(summary_df, summary_file, sep = "\t", row.names = FALSE, quote = FALSE)
-  cat(paste0("Mapping summary saved to: ", summary_file, "\n"))
+  
+  # Get all genes that should be in the network
+  all_network_genes <- unique(c(filtered_ppi[[gene1_col]], filtered_ppi[[gene2_col]]))
+  
+  # Create graph (include isolated nodes)
+  g <- graph_from_data_frame(edges, directed = FALSE, vertices = data.frame(name = all_network_genes))
+  
+  # ========== BASIC NETWORK STATISTICS ==========
+  basic_stats <- list(
+    total_nodes = vcount(g),
+    total_edges = ecount(g),
+    network_density = edge_density(g),
+    average_degree = mean(degree(g)),
+    max_degree = max(degree(g)),
+    diameter = diameter(g),
+    average_path_length = mean_distance(g),
+    clustering_coefficient = transitivity(g, type = "average")
+  )
+  
+  # ========== NODE-LEVEL STATISTICS ==========
+  # Calculate centrality measures
+  degree_vals <- degree(g)
+  betweenness_vals <- betweenness(g)
+  closeness_vals <- closeness(g)
+  
+  # Create node statistics table
+  node_stats <- data.frame(
+    gene = V(g)$name,
+    degree = degree_vals,
+    betweenness = betweenness_vals,
+    closeness = closeness_vals,
+    stringsAsFactors = FALSE
+  )
+  
+  # Sort by degree (most connected first)
+  node_stats <- node_stats[order(-node_stats$degree), ]
+  
+  # ========== TOP HUBS ==========
+  top_hubs <- head(node_stats, 10)
+  
+  # ========== CONNECTED COMPONENTS ==========
+  components <- components(g)
+  component_summary <- data.frame(
+    component_id = 1:components$no,
+    size = components$csize,
+    stringsAsFactors = FALSE
+  )
+  component_summary <- component_summary[order(-component_summary$size), ]
+  
+  # ========== ALS GENE ANALYSIS ==========
+  als_genes <- c("SOD1", "TARDBP", "C9ORF72", "FUS", "VCP", "OPTN", "UBQLN2")
+  als_in_network <- intersect(als_genes, V(g)$name)
+  
+  als_stats <- NULL
+  if(length(als_in_network) > 0) {
+    als_stats <- node_stats[node_stats$gene %in% als_in_network, ]
+  }
+  
+  # ========== DEGREE DISTRIBUTION ==========
+  degree_dist <- table(degree_vals)
+  degree_dist_df <- data.frame(
+    degree = as.numeric(names(degree_dist)),
+    frequency = as.numeric(degree_dist),
+    stringsAsFactors = FALSE
+  )
+  
+  # ========== SAVE SUMMARY FILES ==========
+  # 1. Basic network statistics
+  basic_stats_df <- data.frame(
+    metric = names(basic_stats),
+    value = unlist(basic_stats),
+    stringsAsFactors = FALSE
+  )
+  fwrite(basic_stats_df, file.path(output_dir, "network_basic_stats.tsv"), sep = "\t")
+  
+  # 2. Node statistics
+  fwrite(node_stats, file.path(output_dir, "node_statistics.tsv"), sep = "\t")
+  
+  # 3. Top hubs
+  fwrite(top_hubs, file.path(output_dir, "top_hubs.tsv"), sep = "\t")
+  
+  # 4. Connected components
+  fwrite(component_summary, file.path(output_dir, "connected_components.tsv"), sep = "\t")
+  
+  # 5. Degree distribution
+  fwrite(degree_dist_df, file.path(output_dir, "degree_distribution.tsv"), sep = "\t")
+  
+  # 6. ALS gene statistics (if any)
+  if(!is.null(als_stats) && nrow(als_stats) > 0) {
+    fwrite(als_stats, file.path(output_dir, "als_gene_statistics.tsv"), sep = "\t")
+  }
+  
+  # ========== PRINT SUMMARY TO CONSOLE ==========
+  cat("\n" , strrep("=", 60), "\n", sep = "")
+  cat("NETWORK SUMMARY\n")
+  cat(strrep("=", 60), "\n")
+  
+  cat("\nBASIC STATISTICS:\n")
+  cat(paste0("  Total nodes: ", basic_stats$total_nodes, "\n"))
+  cat(paste0("  Total edges: ", basic_stats$total_edges, "\n"))
+  cat(paste0("  Network density: ", round(basic_stats$network_density, 4), "\n"))
+  cat(paste0("  Average degree: ", round(basic_stats$average_degree, 2), "\n"))
+  cat(paste0("  Maximum degree: ", basic_stats$max_degree, "\n"))
+  cat(paste0("  Diameter: ", basic_stats$diameter, "\n"))
+  cat(paste0("  Average path length: ", round(basic_stats$average_path_length, 3), "\n"))
+  cat(paste0("  Clustering coefficient: ", round(basic_stats$clustering_coefficient, 4), "\n"))
+  
+  cat("\nCONNECTED COMPONENTS:\n")
+  cat(paste0("  Number of components: ", components$no, "\n"))
+  cat(paste0("  Largest component: ", max(components$csize), " genes\n"))
+  if(components$no > 1) {
+    cat(paste0("  Second largest: ", component_summary$size[2], " genes\n"))
+  }
+  
+  cat("\nTOP 10 HUB GENES:\n")
+  for(i in 1:nrow(top_hubs)) {
+    cat(sprintf("  %2d. %-10s (degree: %3d, betweenness: %8.1f)\n", 
+                i, top_hubs$gene[i], top_hubs$degree[i], top_hubs$betweenness[i]))
+  }
+  
+  cat("\nALS GENE ANALYSIS:\n")
+  cat(paste0("  ALS genes in network: ", length(als_in_network), "/7\n"))
+  if(length(als_in_network) > 0) {
+    cat("  Present: ", paste(als_in_network, collapse = ", "), "\n")
+    cat("\n  ALS gene statistics:\n")
+    for(gene in als_in_network) {
+      stats <- node_stats[node_stats$gene == gene, ]
+      cat(sprintf("    %-8s: degree=%2d, betweenness=%8.1f\n", 
+                  gene, stats$degree, stats$betweenness))
+    }
+  }
+  
+  cat("\nDEGREE DISTRIBUTION:\n")
+  cat(paste0("  Isolated nodes (degree 0): ", sum(degree_vals == 0), "\n"))
+  cat(paste0("  Low connectivity (degree 1-2): ", sum(degree_vals >= 1 & degree_vals <= 2), "\n"))
+  cat(paste0("  Medium connectivity (degree 3-10): ", sum(degree_vals >= 3 & degree_vals <= 10), "\n"))
+  cat(paste0("  High connectivity (degree >10): ", sum(degree_vals > 10), "\n"))
   
   return(list(
-    file_results = file_results,
-    all_symbols = all_symbols,
-    filtered_network = if(exists("filtered_network") && nrow(filtered_network) > 0) filtered_network else NULL
+    graph = g,
+    basic_stats = basic_stats,
+    node_stats = node_stats,
+    top_hubs = top_hubs,
+    components = components,
+    als_in_network = als_in_network
   ))
 }
 
-# Direct execution with your files
-cat("Running STRING PPI filtering script...\n")
+# ========== SAVE RESULTS ==========
+if(!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
-# Define your files
-string_path <- "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\datasets\\ppi\\string_interactions.tsv"
-de_files <- c(
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE833\\GSE833_DE_results.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE76220\\GSE76220_DE_results.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE112676\\GSE112676_DE_results.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE118336\\GSE118336_annotated_de_FUS_H517D_Mutant_vs_Control.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE118336\\GSE118336_annotated_de_FUS_Heterozygous_vs_Control.csv",
-  "C:\\Users\\noahm\\PycharmProjects\\MarbleProject\\de_results\\GSE124439\\GSE124439_DE_results.csv"
-)
+# Save filtered network
+output_file <- file.path(output_dir, "filtered_ppi.tsv")
+fwrite(filtered_ppi, output_file, sep = "\t")
+cat(paste0("Filtered network saved to: ", output_file, "\n"))
 
-output_dir <- "./ppi_results"
+# Save gene list
+genes_file <- file.path(output_dir, "significant_genes.txt")
+writeLines(sort(sig_genes), genes_file)
 
-# Run the analysis
-results <- process_files(de_files, string_path, output_dir)
+# Save simple edge list
+edges_file <- file.path(output_dir, "edge_list.tsv")
+fwrite(filtered_ppi[, .(get(gene1_col), get(gene2_col))], 
+       edges_file, sep = "\t", col.names = FALSE)
 
-cat("\nAnalysis complete!\n")
+# ========== CREATE NETWORK SUMMARY ==========
+if(nrow(filtered_ppi) > 0) {
+  network_summary <- create_network_summary(filtered_ppi, gene1_col, gene2_col, sig_genes, output_dir)
+} else {
+  cat("\nWARNING: No interactions in filtered network. Skipping network analysis.\n")
+}
+
+# ========== FINAL SUMMARY ==========
+cat("\n" , strrep("=", 60), "\n", sep = "")
+cat("FILTERING COMPLETE\n")
+cat(strrep("=", 60), "\n")
+
+cat(paste0("\nTHRESHOLDS USED:\n"))
+cat(paste0("  adj.P.Val < ", adj_p, "\n"))
+cat(paste0("  |logFC| > ", logfc, "\n"))
+if(!is.null(min_datasets)) {
+  cat(paste0("  datasets >= ", min_datasets, "\n"))
+}
+
+cat(paste0("\nRESULTS SUMMARY:\n"))
+cat(paste0("  Significant DE genes: ", length(sig_genes), "\n"))
+if(exists("filtered_ppi") && nrow(filtered_ppi) > 0) {
+  network_genes <- unique(c(filtered_ppi[[gene1_col]], filtered_ppi[[gene2_col]]))
+  cat(paste0("  Genes in PPI network: ", length(network_genes), "\n"))
+  cat(paste0("  Interactions in network: ", nrow(filtered_ppi), "\n"))
+  
+  # Check ALS genes
+  als_genes <- c("SOD1", "TARDBP", "C9ORF72", "FUS", "VCP", "OPTN", "UBQLN2")
+  als_in_network <- intersect(als_genes, network_genes)
+  cat(paste0("  ALS genes in network: ", length(als_in_network), "/7\n"))
+  if(length(als_in_network) > 0) {
+    cat(paste0("    Present: ", paste(als_in_network, collapse = ", "), "\n"))
+  }
+}
+
+cat(paste0("\nOUTPUT FILES CREATED:\n"))
+cat(paste0("  ", output_dir, "/filtered_ppi.tsv          - Filtered PPI network\n"))
+cat(paste0("  ", output_dir, "/significant_genes.txt     - List of significant genes\n"))
+cat(paste0("  ", output_dir, "/edge_list.tsv            - Simple edge list\n"))
+if(exists("network_summary")) {
+  cat(paste0("  ", output_dir, "/network_basic_stats.tsv  - Basic network statistics\n"))
+  cat(paste0("  ", output_dir, "/node_statistics.tsv      - Node-level statistics\n"))
+  cat(paste0("  ", output_dir, "/top_hubs.tsv            - Top 10 hub genes\n"))
+  cat(paste0("  ", output_dir, "/connected_components.tsv - Connected components\n"))
+  cat(paste0("  ", output_dir, "/degree_distribution.tsv  - Degree distribution\n"))
+  if(file.exists(file.path(output_dir, "als_gene_statistics.tsv"))) {
+    cat(paste0("  ", output_dir, "/als_gene_statistics.tsv - ALS gene statistics\n"))
+  }
+}
+
+cat(paste0("\nAll analysis complete! Check the ", output_dir, " directory for results.\n"))

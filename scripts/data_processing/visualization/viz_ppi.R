@@ -507,8 +507,8 @@ if(!interactive()) {
   cat("Running in interactive mode...\n")
   
   # Interactive example - modify these paths as needed
-  network_file <- "./ppi_results/filtered_string_network.tsv"
-  output_dir <- "./network_visualizations"
+  network_file <- "./datasets/ppi/string_interactions.tsv"
+  output_dir <- "./network_visualizations_original"
   gene_symbols_file <- "./ppi_results/all_gene_symbols.txt"
   
   # Create output directory
