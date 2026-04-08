@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python3 scripts/data_processing/mRNA_protein_corr/mRNA_protein_correlation_pipeline.py)"
+    ]
+  }
+}

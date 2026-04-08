@@ -1,0 +1,251 @@
+mRNA-Protein Correlation Pipeline — Inspection Report
+======================================================================
+
+File: GSE833 (GSE833_DE_Results.csv)
+  Shape:   7070 rows × 8 columns
+  Columns: ['Probe_ID', 'logFC', 'AveExpr', 't', 'P.Value', 'adj.P.Val', 'B', 'Gene_Symbol']
+  First 3 rows:
+    {'Probe_ID': 'AF002224_at', 'logFC': 6.44492906652745, 'AveExpr': 8.42324659176847, 't': 21.3452641233358, 'P.Value': 2.65398619338768e-10, 'adj.P.Val': 1.87636823872509e-06, 'B': 11.1856879164682, 'Gene_Symbol': 'UBE3A'}
+    {'Probe_ID': 'Z73677_at', 'logFC': -5.13855097048739, 'AveExpr': 6.2215250436156, 't': -14.9929367650343, 'P.Value': 1.14486743878448e-08, 'adj.P.Val': 4.04710639610314e-05, 'B': 9.10607562326349, 'Gene_Symbol': 'PKP1'}
+    {'Probe_ID': 'M25280_at', 'logFC': 5.66920675609016, 'AveExpr': 7.92960512149019, 't': 13.4465427772973, 'P.Value': 3.58026532786439e-08, 'adj.P.Val': 8.43749195600042e-05, 'B': 8.34224886154984, 'Gene_Symbol': 'SELL'}
+  Missing values per column:
+    Probe_ID: 0
+    logFC: 0
+    AveExpr: 0
+    t: 0
+    P.Value: 0
+    adj.P.Val: 0
+    B: 0
+    Gene_Symbol: 661
+
+File: GSE76220 (GSE76220_DE_Results.csv)
+  Shape:   9267 rows × 7 columns
+  Columns: ['Unnamed: 0', 'logFC', 'AveExpr', 't', 'P.Value', 'adj.P.Val', 'B']
+  First 3 rows:
+    {'Unnamed: 0': 'CP', 'logFC': 1.56278424209238, 'AveExpr': 0.886498396838567, 't': 6.55590943864996, 'P.Value': 2.07178045392777e-06, 'adj.P.Val': 0.0113061998430028, 'B': 4.61120776167195}
+    {'Unnamed: 0': 'LST1', 'logFC': 1.7335894845952, 'AveExpr': 0.847985778831583, 't': 6.7353246286787, 'P.Value': 2.44115294030073e-06, 'adj.P.Val': 0.0113061998430028, 'B': 4.37360642484138}
+    {'Unnamed: 0': 'TM4SF1', 'logFC': 1.68795740661079, 'AveExpr': 0.638898701162323, 't': 6.04543916990779, 'P.Value': 4.2158294263805e-06, 'adj.P.Val': 0.0130170759921875, 'B': 4.1698260170413}
+  Missing values per column:
+    Unnamed: 0: 0
+    logFC: 4
+    AveExpr: 0
+    t: 4
+    P.Value: 4
+    adj.P.Val: 4
+    B: 4
+
+File: GSE124439 (GSE124439_ALS_vs_Control_Results.csv)
+  Shape:   19984 rows × 6 columns
+  Columns: ['Gene_Symbol', 'logFC', 'logCPM', 'F', 'PValue', 'adj.P.Val']
+  First 3 rows:
+    {'Gene_Symbol': 'ARHGAP36', 'logFC': -3.468690914, 'logCPM': 0.932710714, 'F': 241.8705207, 'PValue': 6.029999999999999e-34, 'adj.P.Val': 1.2000000000000001e-29}
+    {'Gene_Symbol': 'ECEL1', 'logFC': -4.076987926, 'logCPM': 0.243839597, 'F': 209.4854457, 'PValue': 5.34e-31, 'adj.P.Val': 5.33e-27}
+    {'Gene_Symbol': 'GABRE', 'logFC': -3.466291658, 'logCPM': 1.30697239, 'F': 196.0650882, 'PValue': 9.479999999999999e-30, 'adj.P.Val': 6.31e-26}
+  Missing values per column:
+    Gene_Symbol: 0
+    logFC: 0
+    logCPM: 0
+    F: 0
+    PValue: 0
+    adj.P.Val: 0
+
+File: GSE118336_Homo (GSE118336_annotated_de_FUS_H517D_Mutant_vs_Control.csv)
+  Shape:   32670 rows × 7 columns
+  Columns: ['Gene_Symbol', 'logFC', 'AveExpr', 't', 'P.Value', 'adj.P.Val', 'B']
+  First 3 rows:
+    {'Gene_Symbol': 'CCDC125', 'logFC': -1.72281555555556, 'AveExpr': 6.00549055555556, 't': -27.6310481613792, 'P.Value': 3.65438718694204e-26, 'adj.P.Val': 2.57718347584713e-21, 'B': 48.9405967380575}
+    {'Gene_Symbol': 'HIST1H3A;HIST1H3B;HIST1H3C;HIST1H3D;HIST1H3E;HIST1H3F;HIST1H3G;HIST1H3H;HIST1H3I;HIST1H3J', 'logFC': -5.625455, 'AveExpr': 11.8659947222222, 't': -24.3074208353723, 'P.Value': 3.17917324352427e-24, 'adj.P.Val': 1.12102417326531e-19, 'B': 44.7799504121367}
+    {'Gene_Symbol': 'DSC2', 'logFC': -2.64051055555556, 'AveExpr': 8.24658805555556, 't': -23.866491593032, 'P.Value': 5.9868975705361404e-24, 'adj.P.Val': 1.25625113489984e-19, 'B': 44.1831979655092}
+  Missing values per column:
+    Gene_Symbol: 0
+    logFC: 0
+    AveExpr: 0
+    t: 0
+    P.Value: 0
+    adj.P.Val: 0
+    B: 0
+
+File: GSE118336_Hetero (GSE118336_annotated_de_FUS_Heterozygous_vs_Control.csv)
+  Shape:   32670 rows × 7 columns
+  Columns: ['Gene_Symbol', 'logFC', 'AveExpr', 't', 'P.Value', 'adj.P.Val', 'B']
+  First 3 rows:
+    {'Gene_Symbol': 'CLU', 'logFC': -1.07570236111111, 'AveExpr': 8.71503571428571, 't': -20.7658387207264, 'P.Value': 6.08830084760428e-24, 'adj.P.Val': 2.14682620337798e-19, 'B': 43.3441896598994}
+    {'Gene_Symbol': 'BX571672.1;OTTHUMG00000013471', 'logFC': -0.894406666666669, 'AveExpr': 5.65261547619048, 't': -18.6983883761655, 'P.Value': 3.47481011010773e-22, 'adj.P.Val': 6.12635083487818e-18, 'B': 39.6547086588838}
+    {'Gene_Symbol': 'POLR2J2;POLR2J3;UPK3BL', 'logFC': -0.79033888888889, 'AveExpr': 11.5727333333333, 't': -17.9537322838026, 'P.Value': 1.62744343334281e-21, 'adj.P.Val': 1.91286988749392e-17, 'B': 38.2279515502461}
+  Missing values per column:
+    Gene_Symbol: 0
+    logFC: 0
+    AveExpr: 0
+    t: 0
+    P.Value: 0
+    adj.P.Val: 0
+    B: 0
+
+File: GSE112676 (GSE112676_DE_results.csv)
+  Shape:   29830 rows × 8 columns
+  Columns: ['Probe_ID', 'Gene_Symbol', 'logFC', 'AveExpr', 't', 'P.Value', 'adj.P.Val', 'B']
+  First 3 rows:
+    {'Probe_ID': 'ILMN_2053103', 'Gene_Symbol': 'SLC40A1', 'logFC': 0.701814701350391, 'AveExpr': 8.08824357903011, 't': 16.1010365864859, 'P.Value': 3.0566393123410597e-50, 'adj.P.Val': 9.1179550687134e-46, 'B': 103.273097382068}
+    {'Probe_ID': 'ILMN_1819608', 'Gene_Symbol': 'HS.568928', 'logFC': -0.388825855710397, 'AveExpr': 8.89995686560388, 't': -14.4799084409142, 'P.Value': 5.010785144904929e-42, 'adj.P.Val': 7.473586043625701e-38, 'B': 84.6045311913262}
+    {'Probe_ID': 'ILMN_1766054', 'Gene_Symbol': 'ABCA1', 'logFC': 0.645598994935288, 'AveExpr': 8.22384038370234, 't': 14.385602518154, 'P.Value': 1.45722756006156e-41, 'adj.P.Val': 1.44896993722121e-37, 'B': 83.5511537919909}
+  Missing values per column:
+    Probe_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    AveExpr: 0
+    t: 0
+    P.Value: 0
+    adj.P.Val: 0
+    B: 0
+
+File: PXD067060_CTX (PXD067060_DE_CTX_TP7_vs_TP1.csv)
+  Shape:   1985 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'tissue', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'Q2M2I8', 'Gene_Symbol': 'AAK1', 'logFC': -0.491, 'P.Value': 0.0866711597001824, 'adj.P.Val': 1, 'significant': False, 'tissue': 'CTX', 'comparison': 'TP7_vs_TP1'}
+    {'Protein_ID': 'P49588', 'Gene_Symbol': 'AARS', 'logFC': -0.262, 'P.Value': 0.261104499735163, 'adj.P.Val': 1, 'significant': False, 'tissue': 'CTX', 'comparison': 'TP7_vs_TP1'}
+    {'Protein_ID': 'Q9BTE6', 'Gene_Symbol': 'AARSD1', 'logFC': -0.369, 'P.Value': 0.520789596378586, 'adj.P.Val': 1, 'significant': False, 'tissue': 'CTX', 'comparison': 'TP7_vs_TP1'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    tissue: 0
+    comparison: 0
+  Unique 'comparison' values: ['TP7_vs_TP1']
+  Unique 'tissue' values: ['CTX']
+
+File: PXD067060_SPC (PXD067060_DE_SPC_TP7_vs_TP1.csv)
+  Shape:   1793 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'tissue', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'Q9UBI6', 'Gene_Symbol': 'GNG12', 'logFC': 2.41, 'P.Value': 6.70822423527948e-06, 'adj.P.Val': 0.00879, 'significant': True, 'tissue': 'SPC', 'comparison': 'TP7_vs_TP1'}
+    {'Protein_ID': 'P22087', 'Gene_Symbol': 'FBL', 'logFC': 1.28, 'P.Value': 1.11310847766184e-05, 'adj.P.Val': 0.00964, 'significant': True, 'tissue': 'SPC', 'comparison': 'TP7_vs_TP1'}
+    {'Protein_ID': 'P12814', 'Gene_Symbol': 'ACTN1', 'logFC': 1.11, 'P.Value': 0.0001401918749905, 'adj.P.Val': 0.113, 'significant': False, 'tissue': 'SPC', 'comparison': 'TP7_vs_TP1'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    tissue: 0
+    comparison: 0
+  Unique 'comparison' values: ['TP7_vs_TP1']
+  Unique 'tissue' values: ['SPC']
+
+File: PXD067060_ALL (PXD067060_DE_results.csv)
+  Shape:   3778 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'tissue', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'Q2M2I8', 'Gene_Symbol': 'AAK1', 'logFC': -0.491, 'P.Value': 0.0866711597001824, 'adj.P.Val': 1.0, 'significant': False, 'tissue': 'CTX', 'comparison': 'TP7_vs_TP1'}
+    {'Protein_ID': 'P49588', 'Gene_Symbol': 'AARS', 'logFC': -0.262, 'P.Value': 0.261104499735163, 'adj.P.Val': 1.0, 'significant': False, 'tissue': 'CTX', 'comparison': 'TP7_vs_TP1'}
+    {'Protein_ID': 'Q9BTE6', 'Gene_Symbol': 'AARSD1', 'logFC': -0.369, 'P.Value': 0.520789596378586, 'adj.P.Val': 1.0, 'significant': False, 'tissue': 'CTX', 'comparison': 'TP7_vs_TP1'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    tissue: 0
+    comparison: 0
+  Unique 'comparison' values: ['TP7_vs_TP1']
+  Unique 'tissue' values: ['CTX', 'SPC']
+
+File: PXD065424_ARS (PXD065424_DE_ARS_C9ALS_vs_Control.csv)
+  Shape:   1105 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'condition', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'Q8N556;Q8TED9', 'Gene_Symbol': 'AFAP1', 'logFC': 4.06, 'P.Value': 1.7585127380959e-09, 'adj.P.Val': 1.68e-08, 'significant': True, 'condition': 'ARS', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q13045', 'Gene_Symbol': 'FLII', 'logFC': 3.43, 'P.Value': 4.10339618217374e-09, 'adj.P.Val': 2.76e-07, 'significant': True, 'condition': 'ARS', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q13885;A6NNZ2', 'Gene_Symbol': 'TUBB2A', 'logFC': 4.24, 'P.Value': 4.36088829451565e-09, 'adj.P.Val': 3e-07, 'significant': True, 'condition': 'ARS', 'comparison': 'C9ALS_vs_Control'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    condition: 0
+    comparison: 0
+  Unique 'condition' values: ['ARS']
+  Unique 'comparison' values: ['C9ALS_vs_Control']
+
+File: PXD065424_CTRL (PXD065424_DE_CTRL_C9ALS_vs_Control.csv)
+  Shape:   979 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'condition', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'Q13885;A6NNZ2', 'Gene_Symbol': 'TUBB2A', 'logFC': 4.54, 'P.Value': 8.61522563371538e-10, 'adj.P.Val': 6.7e-07, 'significant': True, 'condition': 'CTRL', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'P51116', 'Gene_Symbol': 'FXR2', 'logFC': 3.23, 'P.Value': 2.70482147080635e-09, 'adj.P.Val': 2.24e-05, 'significant': True, 'condition': 'CTRL', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q5T5P2', 'Gene_Symbol': 'KIAA1217', 'logFC': -5.82, 'P.Value': 3.4032909515525903e-09, 'adj.P.Val': 3.1e-05, 'significant': True, 'condition': 'CTRL', 'comparison': 'C9ALS_vs_Control'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    condition: 0
+    comparison: 0
+  Unique 'condition' values: ['CTRL']
+  Unique 'comparison' values: ['C9ALS_vs_Control']
+
+File: PXD065424_RNase_ARS (PXD065424_DE_RNase_ARS_C9ALS_vs_Control.csv)
+  Shape:   1087 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'condition', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'P09496', 'Gene_Symbol': 'CLTA', 'logFC': 3.44, 'P.Value': 3.1802196593468e-09, 'adj.P.Val': 1.34e-09, 'significant': True, 'condition': 'RNase_ARS', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q00325', 'Gene_Symbol': 'SLC25A3', 'logFC': 3.03, 'P.Value': 7.032461659712571e-09, 'adj.P.Val': 2.97e-08, 'significant': True, 'condition': 'RNase_ARS', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'A0A1B0GV03', 'Gene_Symbol': 'A0A1B0GV03', 'logFC': 5.3, 'P.Value': 1.30597306483266e-08, 'adj.P.Val': 2.62e-07, 'significant': True, 'condition': 'RNase_ARS', 'comparison': 'C9ALS_vs_Control'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    condition: 0
+    comparison: 0
+  Unique 'condition' values: ['RNase_ARS']
+  Unique 'comparison' values: ['C9ALS_vs_Control']
+
+File: PXD065424_RNase_CTRL (PXD065424_DE_RNase_CTRL_C9ALS_vs_Control.csv)
+  Shape:   1056 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'condition', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'P17096', 'Gene_Symbol': 'HMGA1', 'logFC': -4.42, 'P.Value': 1.9183602375728803e-09, 'adj.P.Val': 6.17e-10, 'significant': True, 'condition': 'RNase_CTRL', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'O43264', 'Gene_Symbol': 'ZW10', 'logFC': 3.6, 'P.Value': 6.5216475702948504e-09, 'adj.P.Val': 1.14e-07, 'significant': True, 'condition': 'RNase_CTRL', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q6S8J3;P0CG39;Q9BYX7', 'Gene_Symbol': 'POTEE', 'logFC': -2.73, 'P.Value': 9.321240736223361e-09, 'adj.P.Val': 3.31e-07, 'significant': True, 'condition': 'RNase_CTRL', 'comparison': 'C9ALS_vs_Control'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    condition: 0
+    comparison: 0
+  Unique 'condition' values: ['RNase_CTRL']
+  Unique 'comparison' values: ['C9ALS_vs_Control']
+
+File: PXD065424_ALL (PXD065424_DE_results.csv)
+  Shape:   4227 rows × 8 columns
+  Columns: ['Protein_ID', 'Gene_Symbol', 'logFC', 'P.Value', 'adj.P.Val', 'significant', 'condition', 'comparison']
+  First 3 rows:
+    {'Protein_ID': 'Q8N556;Q8TED9', 'Gene_Symbol': 'AFAP1', 'logFC': 4.06, 'P.Value': 1.7585127380959e-09, 'adj.P.Val': 1.68e-08, 'significant': True, 'condition': 'ARS', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q13045', 'Gene_Symbol': 'FLII', 'logFC': 3.43, 'P.Value': 4.10339618217374e-09, 'adj.P.Val': 2.76e-07, 'significant': True, 'condition': 'ARS', 'comparison': 'C9ALS_vs_Control'}
+    {'Protein_ID': 'Q13885;A6NNZ2', 'Gene_Symbol': 'TUBB2A', 'logFC': 4.24, 'P.Value': 4.36088829451565e-09, 'adj.P.Val': 3e-07, 'significant': True, 'condition': 'ARS', 'comparison': 'C9ALS_vs_Control'}
+  Missing values per column:
+    Protein_ID: 0
+    Gene_Symbol: 0
+    logFC: 0
+    P.Value: 0
+    adj.P.Val: 0
+    significant: 0
+    condition: 0
+    comparison: 0
+  Unique 'condition' values: ['ARS', 'CTRL', 'RNase_ARS', 'RNase_CTRL']
+  Unique 'comparison' values: ['C9ALS_vs_Control']

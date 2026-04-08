@@ -1,0 +1,59 @@
+
+mRNA–Protein Correlation Pipeline — Summary Report
+======================================================================
+
+▌ SPINAL CORD (GSE833 + GSE76220 mRNA  ×  PXD067060_SPC protein)
+  Genes analysed:      688
+  Pearson r:           0.2065  (p = 4.625e-08)
+  Spearman r:          0.1981  (p = 1.606e-07)
+  Quadrant breakdown:  ambiguous: 611  |  concordant_down: 16  |  concordant_up: 34  |  discordant_HIGH: 14  |  discordant_LOW: 13
+
+▌ CORTEX (GSE124439 mRNA  ×  PXD067060_CTX protein)
+  Genes analysed:      1914
+  Pearson r:           -0.0217  (p = 3.417e-01)
+  Spearman r:          -0.0395  (p = 8.397e-02)
+  Quadrant breakdown:  ambiguous: 1905  |  concordant_up: 5  |  discordant_HIGH: 3  |  discordant_LOW: 1
+
+▌ STRING INPUT LISTS
+  High-confidence (discordant_LOW in BOTH tissues): 1 genes
+  Extended (discordant_LOW in EITHER tissue):       13 genes
+
+▌ PXD065424 NETWORK EXPANSION
+  Significant in ARS condition:                     54 genes
+  Significant in RNase+ARS condition:               48 genes
+  High-confidence interactome (both ARS):           11 genes
+
+▌ PRIORITY NODES (interactome ∩ discordant_LOW):    0 genes
+======================================================================
+
+mRNA files cleaned:
+  GSE833   → 5243 genes
+  GSE76220 → 9210 genes
+  GSE124439 → 18972 genes
+  Spinal cord merged (inner join): 2396 genes
+
+Protein files cleaned:
+  PXD067060 CTX → 1985 genes
+  PXD067060 SPC → 1793 genes
+
+Skipped datasets:
+  GSE118336 (iPSC FUS lines)  — skipped per pipeline design
+  GSE112676 (blood)           — wrong tissue, excluded
+
+Output files in C:\Users\noahm\PycharmProjects\MarbleProject\scripts\data_processing\mRNA_protein_corr:
+  00_inspection_report.txt
+  GSE833_clean.csv
+  GSE76220_clean.csv
+  GSE124439_clean.csv
+  spinal_cord_mRNA_merged.csv
+  PXD067060_CTX_clean.csv
+  PXD067060_SPC_clean.csv
+  spinal_cord_correlation_results.csv
+  spinal_cord_correlation_plot.png
+  cortex_correlation_results.csv
+  cortex_correlation_plot.png
+  ALS_Ubiquitome_STRING_input_highconfidence.csv
+  ALS_Ubiquitome_STRING_input_extended.csv
+  PXD065424_highconfidence_interactome.csv
+  ALS_Ubiquitome_priority_nodes.csv
+  09_summary_report.txt

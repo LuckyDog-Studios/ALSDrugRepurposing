@@ -82,7 +82,7 @@ get_sample_metadata <- function(gse_data = NULL) {
   return(NULL)
 }
 
-# Function to create proper sample groups - FIXED VERSION
+# Function to create proper sample groups 
 create_proper_sample_groups <- function(sample_names, geo_metadata) {
   cat("Creating sample groups based on GEO metadata...\n")
   
@@ -163,49 +163,43 @@ run_DE_analysis <- function(expr_matrix, groups, data_type = "microarray") {
   
   if (sum(valid_samples) < 10) {
     cat("Not enough samples with valid groups for DE analysis.\n")
-    cat("Control samples:", sum(groups == "Control", na.rm = TRUE), "\n")
-    cat("ALS samples:", sum(groups == "ALS", na.rm = TRUE), "\n")
     return(NULL)
   }
   
   expr_matrix_filtered <- expr_matrix[, valid_samples]
-  groups_filtered <- groups[valid_samples]
+  
+  # Explicitly set factor levels so Control is ALWAYS the reference
+  groups_filtered <- factor(groups[valid_samples], levels = c("Control", "ALS"))
   
   cat("Using", sum(valid_samples), "samples for DE analysis\n")
-  cat("Group distribution - Control:", sum(groups_filtered == "Control"), 
-      "ALS:", sum(groups_filtered == "ALS"), "\n")
   
   if (data_type == "rnaseq") {
-    # Use edgeR for RNA-seq data
-    # Create DGEList object
     dge <- DGEList(counts = expr_matrix_filtered, group = groups_filtered)
-    
-    # Filter lowly expressed genes
     keep <- filterByExpr(dge, min.count = 10, min.prop = 0.1)
     dge <- dge[keep, , keep.lib.sizes = FALSE]
-    cat("Genes after filtering:", nrow(dge), "\n")
-    
-    # Normalize
     dge <- calcNormFactors(dge)
-    
-    # Create design matrix
     design <- model.matrix(~groups_filtered)
-    
-    # Estimate dispersion
     dge <- estimateDisp(dge, design)
-    
-    # Fit model and test
     fit <- glmQLFit(dge, design)
     qlf <- glmQLFTest(fit, coef = 2)
-    
-    # Get results
     results <- topTags(qlf, n = Inf)$table
     
   } else {
-    # Use limma for microarray data
+    # Check for and apply log2 transformation if needed (Standard GEO2R heuristic)
+    qx <- as.numeric(quantile(expr_matrix_filtered, c(0., 0.25, 0.5, 0.75, 0.99, 1.0), na.rm=T))
+    LogC <- (qx[5] > 100) || (qx[6]-qx[1] > 50 && qx[2] > 0)
+    
+    if (LogC) {
+      cat("Data appears to be raw intensities. Applying log2 transformation...\n")
+      expr_matrix_filtered[expr_matrix_filtered <= 0] <- NaN 
+      expr_matrix_filtered <- log2(expr_matrix_filtered)
+    } else {
+      cat("Data appears to already be log2-transformed.\n")
+    }
+
     # Create design matrix
     design <- model.matrix(~0 + groups_filtered)
-    colnames(design) <- gsub("groups_filtered", "", colnames(design))
+    colnames(design) <- levels(groups_filtered)
     
     # Make contrasts (ALS vs Control)
     contrast_matrix <- makeContrasts(
@@ -244,7 +238,7 @@ if (!is.null(series_data)) {
 # Get sample metadata
 geo_metadata <- get_sample_metadata(gse_data)
 
-# Create proper sample groups - FIXED VERSION
+# Create proper sample groups
 groups <- create_proper_sample_groups(sample_names, geo_metadata)
 
 # Save the processed expression matrix
@@ -256,7 +250,7 @@ sample_metadata <- data.frame(
   Sample = sample_names,
   Group = groups
 )
-write.csv(sample_metadata, "GSE112676_sample_metadata.csv")
+write.csv(sample_metadata, "GSE112676_sample_metadata.csv", row.names = FALSE)
 cat("Sample metadata saved to GSE112676_sample_metadata.csv\n")
 
 # Perform differential expression analysis
@@ -264,9 +258,45 @@ if (sum(groups %in% c("Control", "ALS"), na.rm = TRUE) >= 10) {
   de_results <- run_DE_analysis(expr_matrix, groups, data_type)
   
   if (!is.null(de_results)) {
-    # Save results
-    write.csv(de_results, "GSE112676_DE_results.csv")
-    cat("Differential expression results saved to GSE112676_DE_results.csv\n")
+    
+    # ==========================================
+    # NEW: Annotate Probe IDs to Gene Symbols
+    # ==========================================
+    cat("Annotating probe IDs to Gene Symbols...\n")
+    
+    # Extract feature data directly from the downloaded GEO object
+    feature_data <- fData(gse_data)
+    
+    # Use regex to find the column containing gene symbols (usually "Symbol" or "ILMN_Gene")
+    symbol_cols <- grep("symbol|ilmn_gene", colnames(feature_data), ignore.case = TRUE, value = TRUE)
+    
+    # Move rownames (Probe IDs) into their own column
+    de_results$Probe_ID <- rownames(de_results)
+    
+    if (length(symbol_cols) > 0) {
+      symbol_col <- symbol_cols[1] # Take the first matching column
+      cat("Found gene symbols in column:", symbol_col, "\n")
+      # Map the symbols using the rownames
+      de_results$Gene_Symbol <- feature_data[rownames(de_results), symbol_col]
+    } else {
+      cat("Warning: Could not automatically identify a Gene Symbol column in the metadata.\n")
+      de_results$Gene_Symbol <- NA
+    }
+    
+    # Reorder columns so Probe_ID and Gene_Symbol are at the front for readability
+    cols_to_move <- c("Probe_ID", "Gene_Symbol")
+    other_cols <- setdiff(colnames(de_results), cols_to_move)
+    de_results <- de_results[, c(cols_to_move, other_cols)]
+    # ==========================================
+    
+    # Create directory safely if it doesn't exist
+    if (!dir.exists("differential_expression")) {
+      dir.create("differential_expression", recursive = TRUE)
+    }
+    
+    # Save results (using row.names = FALSE since we made Probe_ID a proper column)
+    write.csv(de_results, "differential_expression/GSE112676_DE_results.csv", row.names = FALSE)
+    cat("Differential expression results saved to differential_expression/GSE112676_DE_results.csv\n")
     
     # Print summary
     cat("\nDifferential expression summary:\n")

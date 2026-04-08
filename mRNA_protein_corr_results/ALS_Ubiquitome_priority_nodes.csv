@@ -1,0 +1,2 @@
+Gene_Symbol,logFC_ARS,adj.P.Val_ARS,logFC_RNase_ARS,adj.P.Val_RNase_ARS,spinal_mRNA_logFC,spinal_protein_logFC,spinal_discordance,cortex_mRNA_logFC,cortex_protein_logFC,cortex_discordance,present_in_spinal,present_in_cortex
+ITIH4,-3.96,0.000235,-3.29,0.000932,,,,-0.821538668,2.70330779100424,3.52484645900424,False,True

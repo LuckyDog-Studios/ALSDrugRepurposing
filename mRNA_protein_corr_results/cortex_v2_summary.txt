@@ -1,0 +1,78 @@
+
+Cortex Correlation v2 — Summary Report
+======================================================================
+
+Source datasets
+  mRNA:    GSE124439 (motor cortex, ALS vs control, RNA-seq)
+  Protein: PXD062542 (motor cortex, ALS vs control, TMT proteomics)
+           Pan et al., Scientific Reports 2025
+           Sheet: "Human limma results", columns: M.Mcx_vs_C.Mcx_*
+
+STEP 1 — PXD062542 motor cortex protein cleaning
+  Proteins after cleaning:  7045
+
+STEP 2 — Cortex mRNA-protein correlation
+  Genes in overlap (inner join):  6728
+  Pearson r:   0.0087  (p = 4.757e-01)
+  Spearman r:  0.0480  (p = 8.094e-05)
+
+  Quadrant counts:
+    ambiguous: 6667
+    concordant_up: 27
+    discordant_LOW: 23
+    concordant_down: 9
+    discordant_HIGH: 2
+
+  discordant_LOW genes (cortex v2):
+    ANPEP
+    CD34
+    CFB
+    COL5A3
+    CRABP2
+    FCHSD1
+    GGT5
+    GPX3
+    GSTM1
+    HLA-C
+    ICAM1
+    IGF2BP2
+    ITGB3
+    ITIH4
+    MDK
+    MPZ
+    PODN
+    SAA2
+    SVIL
+    THNSL2
+    TNXB
+    TYMP
+    VTN
+
+STEP 3 — Updated cross-tissue STRING inputs
+  High-confidence (discordant_LOW in BOTH tissues):  1 genes
+    MPZ
+
+  Extended (discordant_LOW in EITHER tissue):         35 genes
+
+  PXD065424 interactome x discordant_LOW (priority nodes): 1 genes
+    ITIH4
+
+STEP 4 — Cross-tissue discordant_LOW comparison
+  discordant_LOW spinal cord (v1, unchanged): 13 genes
+    ['DBT', 'GCN1L1', 'ILK', 'IMPA1', 'MBP', 'MPZ', 'MX1', 'MYL6', 'NCAM1', 'PEA15', 'PPP6C', 'PRPH', 'SFPQ']
+  discordant_LOW cortex (v2):                 23 genes
+    ['ANPEP', 'CD34', 'CFB', 'COL5A3', 'CRABP2', 'FCHSD1', 'GGT5', 'GPX3', 'GSTM1', 'HLA-C', 'ICAM1', 'IGF2BP2', 'ITGB3', 'ITIH4', 'MDK', 'MPZ', 'PODN', 'SAA2', 'SVIL', 'THNSL2', 'TNXB', 'TYMP', 'VTN']
+
+  Overlap (in both tissues):     1 genes  -> ['MPZ']
+  Spinal cord only:              12 genes
+  Cortex only:                   22 genes
+
+======================================================================
+Output files (scripts/data_processing/mRNA_protein_corr/):
+  PXD062542_CTX_clean.csv
+  cortex_correlation_results_v2.csv
+  cortex_correlation_plot_v2.png
+  ALS_Ubiquitome_STRING_input_highconfidence.csv  [overwritten]
+  ALS_Ubiquitome_STRING_input_extended.csv        [overwritten]
+  ALS_Ubiquitome_priority_nodes.csv               [overwritten]
+  cortex_v2_summary.txt

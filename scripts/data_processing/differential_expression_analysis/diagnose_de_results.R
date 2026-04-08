@@ -437,7 +437,7 @@ if(file.exists(de_file)) {
     cat("\nSignificance of ALS genes:\n")
     print(als_significance)
   } else {
-    cat("⚠ WARNING: No key ALS genes found in your DE results!\n")
+    cat("WARNING: No key ALS genes found in your DE results!\n")
   }
   
   # Check top genes for biological relevance

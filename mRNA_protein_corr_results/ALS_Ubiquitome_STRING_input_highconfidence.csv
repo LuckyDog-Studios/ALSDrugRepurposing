@@ -1,0 +1,2 @@
+Gene_Symbol,spinal_mRNA_logFC,spinal_protein_logFC,spinal_discordance,cortex_mRNA_logFC,cortex_protein_logFC,cortex_discordance,present_in_spinal,present_in_cortex
+MPZ,-0.6008132125544459,0.635,1.235813212554446,-1.097919836,6.22683964412018,7.32475948012018,True,True
