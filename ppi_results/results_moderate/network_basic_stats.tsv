@@ -1,9 +1,0 @@
-metric	value
-total_nodes	53
-total_edges	420
-network_density	0.304789550072569
-average_degree	15.8490566037736
-max_degree	40
-diameter	5
-average_path_length	2.41077738515901
-clustering_coefficient	0.741161007250403
