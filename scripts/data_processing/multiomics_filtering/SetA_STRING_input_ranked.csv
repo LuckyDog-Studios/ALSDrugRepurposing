@@ -1,0 +1,8 @@
+Gene_Symbol,evidence_count,present_in_SC,present_in_CTX,known_ALS_gene,UPS_related,discordant_LOW,stress_granule_interactome,n_annotation_categories
+C2orf88,2,False,True,False,False,False,False,0
+CFI,2,True,False,False,False,False,False,0
+CP,2,True,False,False,False,False,False,0
+GBP2,2,True,False,False,False,False,False,0
+ITGB2,2,True,False,False,False,False,False,0
+PRODH,2,False,True,False,False,False,False,0
+SERPINA3,2,True,False,False,False,False,False,0

@@ -1,0 +1,33 @@
+SetA Pipeline — Summary Report
+============================================================
+
+── Filtered inputs ──────────────────────────────────────────
+  SC mRNA  genes passing filters : 33
+  CTX mRNA genes passing filters : 777
+  SC protein genes passing filters: 365
+  CTX protein genes passing filters: 552
+
+── Set A per-tissue ─────────────────────────────────────────
+  SetA spinal cord : 5 genes  (UP=5, DOWN=0)
+  SetA motor cortex: 2 genes  (UP=1, DOWN=1)
+
+── SetA combined ────────────────────────────────────────────
+  Total unique genes              : 7
+  Spinal cord only                : 5
+  Motor cortex only               : 2
+  Both tissues, same direction    : 0  (evidence_count=4)
+  Both tissues, discordant        : 0
+
+── Biological annotation overlaps ───────────────────────────
+  Known ALS genes                 : 0 — none
+  UPS-related genes               : 0 — none
+  Discordant_LOW (prev. analysis) : 0 — none
+  Stress granule interactome      : 0 — none
+
+── Cross-tissue confirmed genes (evidence_count = 4) ────────
+  N = 0
+  (none)
+
+── Highest-priority STRING seeds (n_annotation_categories ≥ 2) ─
+  N = 0
+  (none)
