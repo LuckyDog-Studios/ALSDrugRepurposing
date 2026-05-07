@@ -1,0 +1,39 @@
+=== SetA ===
+Shape: (57, 17)
+Columns: ['Gene_Symbol', 'present_in_SC', 'present_in_CTX', 'direction_SC', 'direction_CTX', 'SC_mRNA_logFC', 'SC_LCM_SMD', 'SC_mRNA_source', 'SC_protein_logFC', 'SC_protein_adjPval', 'CTX_mRNA_logFC', 'CTX_mRNA_adjPval', 'CTX_protein_logFC', 'CTX_protein_adjPval', 'evidence_count', 'cross_tissue', 'cross_tissue_discordant']
+First 3 rows:
+Gene_Symbol  present_in_SC  present_in_CTX direction_SC direction_CTX  SC_mRNA_logFC  SC_LCM_SMD SC_mRNA_source  SC_protein_logFC  SC_protein_adjPval  CTX_mRNA_logFC  CTX_mRNA_adjPval  CTX_protein_logFC  CTX_protein_adjPval  evidence_count  cross_tissue  cross_tissue_discordant
+       ABAT           True           False         DOWN           NaN      -0.030004         NaN     GEO_merged         -0.815152            0.028703             NaN               NaN                NaN                  NaN               2         False                    False
+      ABCA1           True           False           UP           NaN            NaN       1.089       LCM_meta          0.781995            0.039466             NaN               NaN                NaN                  NaN               2         False                    False
+    ALDH5A1           True           False         DOWN           NaN      -0.151823         NaN     GEO_merged         -0.564526            0.049180             NaN               NaN                NaN                  NaN               2         False                    False
+N unique Gene_Symbol: 57
+
+=== SetB ===
+Shape: (35, 9)
+Columns: ['Gene_Symbol', 'spinal_mRNA_logFC', 'spinal_protein_logFC', 'spinal_discordance', 'cortex_mRNA_logFC', 'cortex_protein_logFC', 'cortex_discordance', 'present_in_spinal', 'present_in_cortex']
+First 3 rows:
+Gene_Symbol  spinal_mRNA_logFC  spinal_protein_logFC  spinal_discordance  cortex_mRNA_logFC  cortex_protein_logFC  cortex_discordance  present_in_spinal  present_in_cortex
+      ANPEP                NaN                   NaN                 NaN          -0.716036              1.342160            2.058196              False               True
+       CD34                NaN                   NaN                 NaN          -0.581002              0.750763            1.331765              False               True
+        CFB                NaN                   NaN                 NaN          -0.719478              4.068599            4.788078              False               True
+N unique Gene_Symbol: 35
+
+=== SetC ===
+Shape: (11, 5)
+Columns: ['Gene_Symbol', 'logFC_ARS', 'adj.P.Val_ARS', 'logFC_RNase_ARS', 'adj.P.Val_RNase_ARS']
+First 3 rows:
+Gene_Symbol  logFC_ARS  adj.P.Val_ARS  logFC_RNase_ARS  adj.P.Val_RNase_ARS
+      SPON1       5.81       0.000073             3.27             0.000365
+      ITIH4      -3.96       0.000235            -3.29             0.000932
+       CFL2       3.19       0.000994             2.24             0.000584
+N unique Gene_Symbol: 11
+
+=== SetE ===
+Shape: (342, 4)
+Columns: ['Gene_Symbol', 'direction', 'LCM_SMD', 'LCM_FDR']
+First 3 rows:
+Gene_Symbol direction  LCM_SMD  LCM_FDR
+      C3AR1        UP    1.660 0.001140
+     ELAVL3      DOWN   -1.594 0.020500
+       MADD      DOWN   -1.536 0.000198
+N unique Gene_Symbol: 342

@@ -1,0 +1,32 @@
+SetA v2 Summary Report
+==================================================
+
+--- Set E: LCM meta-analysis ---
+  increased_FDR05: 147 genes after cleaning
+  decreased_FDR05: 195 genes after cleaning
+  increased_FDR10: 222 genes after cleaning
+  decreased_FDR10: 278 genes after cleaning
+
+  SetE FDR05 (primary): 342 genes  (UP=147, DOWN=195)
+  SetE FDR10 total:     500 genes
+  SetE FDR10 additional (not in FDR05): 158 genes
+
+--- SC mRNA expanded ---
+  GEO_merged only:      2288
+  LCM_meta only:        234
+  Both concordant:      88
+  Both discordant:      20 (excluded from Set A)
+  Total in expanded:    2630
+
+--- Set A v2 gene counts ---
+  SetA spinal cord v2:  55 genes  (UP=31, DOWN=24)
+  SetA cortex v2:       2 genes  (UP=1, DOWN=1)
+  SetA combined v2:     57 total unique genes
+    SC only:              55
+    CTX only:             2
+    Cross-tissue same dir:0 (evidence_count=4)
+    Cross-tissue discord: 0
+
+--- Comparison to v1 ---
+  SetA combined v1: 7 genes
+  New genes in v2:  50

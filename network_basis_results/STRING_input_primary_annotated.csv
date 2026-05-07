@@ -1,0 +1,14 @@
+Gene_Symbol,in_SetA,in_SetB,in_SetC,in_SetE,SetA_present_in_SC,SetA_present_in_CTX,SetA_cross_tissue,SetA_direction_SC,SetA_direction_CTX,SetA_mRNA_source,SetB_in_SC,SetB_in_CTX,SetE_direction,SetE_SMD,SetE_FDR,n_sets,priority_tier,UPS_proteostasis,known_ALS_gene,stress_granule_RBP,neuroinflammation,n_annotation_categories
+ABCA1,True,False,False,True,True,False,False,UP,,LCM_meta,,,UP,1.089,0.0053,2,Tier2,False,False,False,False,0
+BCO2,True,False,False,True,True,False,False,DOWN,,LCM_meta,,,DOWN,-1.078,0.047,2,Tier2,False,False,False,False,0
+C3,True,False,False,True,True,False,False,UP,,GEO_and_LCM,,,UP,1.163,0.036,2,Tier2,False,False,False,False,0
+CD163,True,False,False,True,True,False,False,UP,,GEO_and_LCM,,,UP,1.098,0.0197,2,Tier2,False,False,False,False,0
+CP,True,False,False,True,True,False,False,UP,,GEO_and_LCM,,,UP,1.24,0.0175,2,Tier2,False,False,False,True,1
+CYBB,True,False,False,True,True,False,False,UP,,GEO_and_LCM,,,UP,1.25,0.00895,2,Tier2,False,False,False,False,0
+FOXRED1,True,False,False,True,True,False,False,DOWN,,LCM_meta,,,DOWN,-1.003,0.00895,2,Tier2,False,False,False,False,0
+HLA-C,True,True,False,False,True,False,False,UP,,GEO_merged,False,True,,,,2,Tier2,False,False,False,True,1
+ITIH4,False,True,True,False,,,,,,,False,True,,,,2,Tier2,False,False,False,False,0
+MRPL37,True,False,False,True,True,False,False,DOWN,,LCM_meta,,,DOWN,-0.862,0.0236,2,Tier2,False,False,False,False,0
+OSBPL11,True,False,False,True,True,False,False,UP,,LCM_meta,,,UP,1.083,0.00931,2,Tier2,False,False,False,False,0
+SERPINA3,True,False,False,True,True,False,False,UP,,GEO_and_LCM,,,UP,1.332,0.00114,2,Tier2,False,False,False,True,1
+TTLL1,True,False,False,True,True,False,False,DOWN,,LCM_meta,,,DOWN,-1.504,0.005,2,Tier2,False,False,False,False,0

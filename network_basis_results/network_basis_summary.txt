@@ -1,0 +1,70 @@
+======================================================================
+NETWORK BASIS PIPELINE -- Summary Report
+======================================================================
+
+INPUT SETS
+----------------------------------------
+Set A (multi-omic concordant):              57 genes
+Set B (proteostatic failure / UPS):         35 genes
+Set C (stress-granule interactors):         11 genes
+Set E (LCM meta-analysis, total):          342 genes
+
+SET E CONTRIBUTION
+----------------------------------------
+Set E overlapping Set A:                    11
+Set E overlapping Set B:                     0
+Set E overlapping Set C:                     0
+Set E contributing to network (>=1 of A/B/C):  11
+Set E excluded (not in A/B/C):             331
+
+MASTER SEED LIST
+----------------------------------------
+Total unique genes:                        101
+  from Set A:                               57
+  from Set B:                               35
+  from Set C:                               11
+  from Set E (boosting):                    11
+
+Tier 1 (n_sets >= 3, highest confidence):    0
+Tier 2 (n_sets == 2):                       13
+Tier 3 (n_sets == 1):                       88
+
+STRING INPUT FILES
+----------------------------------------
+Primary input (Tier 1+2, n_sets >= 2):      13 genes
+Extended input (all tiers):                101 genes
+
+TIER 1 GENES (n_sets >= 3)
+----------------------------------------
+
+TIER 2 GENES (n_sets == 2)
+----------------------------------------
+  ABCA1            sets=A+E         n=2
+  BCO2             sets=A+E         n=2
+  C3               sets=A+E         n=2
+  CD163            sets=A+E         n=2
+  CP               sets=A+E         n=2
+  CYBB             sets=A+E         n=2
+  FOXRED1          sets=A+E         n=2
+  HLA-C            sets=A+B         n=2
+  ITIH4            sets=B+C         n=2
+  MRPL37           sets=A+E         n=2
+  OSBPL11          sets=A+E         n=2
+  SERPINA3         sets=A+E         n=2
+  TTLL1            sets=A+E         n=2
+
+BIOLOGICAL ANNOTATION OVERLAPS (primary STRING input)
+----------------------------------------
+UPS / proteostasis (0 genes):   none
+Known ALS genes (0 genes):      none
+Stress granule / RBP (0 genes):  none
+Neuroinflammation (3 genes):  CP, HLA-C, SERPINA3
+
+USAGE NOTE
+----------------------------------------
+Submit STRING_input_primary.txt to STRING database at string-db.org.
+Use confidence threshold 0.7, organism Human (9606), network type full
+STRING network. After export, import
+STRING_input_primary_annotated.csv into Cytoscape as node annotation
+table for coloring nodes by evidence layer (in_SetA, in_SetB, in_SetC,
+in_SetE) and biological category.

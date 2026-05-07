@@ -1,2 +1,0 @@
-"Database","ID","Description","SC_direction","SC_mRNA_NES","SC_mRNA_padj","SC_protein_NES","SC_protein_padj","CTX_direction","CTX_mRNA_NES","CTX_protein_NES","CTX_mRNA_padj","CTX_protein_padj","consistent","UPS_relevant"
-"Reactome","R-HSA-6798695","Neutrophil degranulation","UP",1.6904482691956,0.00739999948561329,2.25581614209273,3.27998880320073e-21,"UP",1.34224032804559,2.08139840177928,0.0231053243248526,1.31820248066504e-16,TRUE,FALSE

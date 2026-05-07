@@ -1,0 +1,49 @@
+LCM Excel File Inspection
+
+==================================================
+File: increased_FDR05
+Path: C:\Users\noahm\PycharmProjects\MarbleProject\scripts\data_processing\multiomics_filtering\..\..\..\differential_expression\gene expression\LCM_meta_SC_increased_FDR05.XLSX
+Sheet: (A) DEG List
+Columns: ['Symbol', 'Gene Name', 'SMD', 'P-value', 'FDR', 'Mean CPM (motor neurons)', '% Detected (motor neurons)', 'Mean CPM > 1 (cell types)']
+N rows: 147
+First 3 rows:
+     Symbol                              Gene Name    SMD       P-value       FDR Mean CPM (motor neurons) % Detected (motor neurons)          Mean CPM > 1 (cell types)
+0        F3  coagulation factor III, tissue factor  1.337  4.020000e-07  0.000993                     0.63                       8.56  Astrocytes|Meninges|OPC|Pericytes
+1     C3AR1              complement C3a receptor 1  1.660  5.900000e-07  0.001140                     0.07                       1.28                          Microglia
+2  SERPINA3               serpin family A member 3  1.332  6.920000e-07  0.001140                        0                          0                       Not detected
+
+==================================================
+File: decreased_FDR05
+Path: C:\Users\noahm\PycharmProjects\MarbleProject\scripts\data_processing\multiomics_filtering\..\..\..\differential_expression\gene expression\LCM_meta_SC_decreased_FDR05.XLSX
+Sheet: (A) DEG List
+Columns: ['Symbol', 'Gene Name', 'SMD', 'P-value', 'FDR', 'Mean CPM (motor neurons)', '% Detected (motor neurons)', 'Mean CPM > 1 (cell types)']
+N rows: 195
+First 3 rows:
+    Symbol                           Gene Name    SMD       P-value       FDR Mean CPM (motor neurons) % Detected (motor neurons)                                                     Mean CPM > 1 (cell types)
+0     MADD  MAP kinase activating death domain -1.536  2.000000e-08  0.000198                     0.96                      11.87  Neurons|Endothelial|OPC|OD|Astrocytes|Meninges|Pericytes|Microglia|Ependymal
+1    USP13     ubiquitin specific peptidase 13 -1.363  3.140000e-07  0.000993                     0.39                       5.86                                 Neurons|OPC|OD|Meninges|Pericytes|Endothelial
+2  SLC35A4  solute carrier family 35 member A4 -1.349  3.920000e-07  0.000993                      0.2                       3.31                                                                  Not detected
+
+==================================================
+File: increased_FDR10
+Path: C:\Users\noahm\PycharmProjects\MarbleProject\scripts\data_processing\multiomics_filtering\..\..\..\differential_expression\gene expression\LCM_meta_SC_increased_FDR10.XLSX
+Sheet: (A) DEG List
+Columns: ['Symbol', 'Gene Name', 'SMD', 'P-value', 'FDR', 'Mean CPM (motor neurons)', '% Detected (motor neurons)', 'Mean CPM > 1 (cell types)']
+N rows: 222
+First 3 rows:
+     Symbol                              Gene Name    SMD       P-value       FDR Mean CPM (motor neurons) % Detected (motor neurons)          Mean CPM > 1 (cell types)
+0        F3  coagulation factor III, tissue factor  1.337  4.020000e-07  0.000993                     0.63                       8.56  Astrocytes|Meninges|OPC|Pericytes
+1     C3AR1              complement C3a receptor 1  1.660  5.900000e-07  0.001140                     0.07                       1.28                          Microglia
+2  SERPINA3               serpin family A member 3  1.332  6.920000e-07  0.001140                        0                          0                       Not detected
+
+==================================================
+File: decreased_FDR10
+Path: C:\Users\noahm\PycharmProjects\MarbleProject\scripts\data_processing\multiomics_filtering\..\..\..\differential_expression\gene expression\LCM_meta_SC_decreased_FDR10.XLSX
+Sheet: (A) DEG List
+Columns: ['Symbol', 'Gene Name', 'SMD', 'P-value', 'FDR', 'Mean CPM (motor neurons)', '% Detected (motor neurons)', 'Mean CPM > 1 (cell types)']
+N rows: 278
+First 3 rows:
+    Symbol                           Gene Name    SMD       P-value       FDR Mean CPM (motor neurons) % Detected (motor neurons)                                                     Mean CPM > 1 (cell types)
+0     MADD  MAP kinase activating death domain -1.536  2.000000e-08  0.000198                     0.96                      11.87  Neurons|Endothelial|OPC|OD|Astrocytes|Meninges|Pericytes|Microglia|Ependymal
+1    USP13     ubiquitin specific peptidase 13 -1.363  3.140000e-07  0.000993                     0.39                       5.86                                 Neurons|OPC|OD|Meninges|Pericytes|Endothelial
+2  SLC35A4  solute carrier family 35 member A4 -1.349  3.920000e-07  0.000993                      0.2                       3.31                                                                  Not detected

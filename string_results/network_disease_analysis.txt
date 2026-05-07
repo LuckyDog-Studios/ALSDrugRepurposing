@@ -1,0 +1,285 @@
+====================================================================================================
+STRING PROTEIN-PROTEIN INTERACTION NETWORK DISEASE ANALYSIS
+====================================================================================================
+
+STEP 1 — NETWORK OVERVIEW
+------------------------------------------------------------
+PRIMARY network:  61 nodes, 140 edges
+EXTENDED network: 53 nodes, 71 edges
+Total unique proteins across both: 104
+Proteins shared between networks (10): ABCA1, C1S, C3, CD163, CP, CYBB, HLA-C, ITIH4, MRPL37, SERPINA3
+
+Primary network columns: node1, node2, node1_string_id, node2_string_id, neighborhood_on_chromosome, gene_fusion, phylogenetic_cooccurrence, homology, coexpression, experimentally_determined_interaction, database_annotated, automated_textmining, combined_score
+
+First 5 rows — PRIMARY:
+node1 node2  combined_score
+  A2M   HRG           0.762
+  A2M   TTR           0.905
+  A2M  ORM1           0.809
+  A2M    CP           0.889
+  A2M   HPX           0.824
+
+First 5 rows — EXTENDED:
+node1   node2  combined_score
+ ABAT ALDH5A1           0.994
+ ABAT     DBT           0.840
+ ABAT    PCCA           0.821
+ABCA1  HMGCS1           0.755
+ANPEP   PTPRC           0.788
+
+STEP 2 — PROTEIN ANNOTATION TABLE
+----------------------------------------------------------------------------------------------------
+Protein      In Networks    Category                               Function
+----------------------------------------------------------------------------------------------------
+A2M          PRIMARY        Acute phase / Serum proteins           Alpha-2-macroglobulin; protease inhibitor, cytokine carrier
+ABAT         EXTENDED       Neurological / GABA metabolism         GABA aminotransferase; GABA catabolism in brain/neurons
+ABCA1        BOTH           Lipid / Cholesterol metabolism         ABC transporter A1; cholesterol efflux, HDL formation, APOE lipidation
+AGBL3        PRIMARY        Cytoskeleton / Microtubule             CCP3 cytosolic carboxypeptidase; tubulin deglutamylation
+AHSG         PRIMARY        Acute phase / Serum proteins           Fetuin-A; negative acute phase protein, calcium clearance
+ALDH5A1      EXTENDED       Neurological / GABA metabolism         Succinic semialdehyde dehydrogenase; downstream GABA catabolism
+ANPEP        EXTENDED       Immune / Macrophage                    CD13 aminopeptidase N; myeloid cell marker, cytokine processing
+B4E1Z4_HUMAN PRIMARY        Unknown/uncharacterized                No annotation available
+C11orf49     PRIMARY        Unknown/uncharacterized                No annotation available
+C1S          BOTH           Complement / Innate immunity           Complement C1 serine protease; classical pathway initiation
+C3           BOTH           Complement / Innate immunity           Central complement component; opsonization and inflammation
+C5AR2        PRIMARY        Complement / Innate immunity           C5a receptor 2; complement effector signaling
+CD163        BOTH           Immune / Macrophage                    Macrophage scavenger receptor; hemoglobin uptake, anti-inflammatory M2 marker
+CD209        PRIMARY        Immune / Macrophage                    DC-SIGN; dendritic cell lectin receptor, pathogen recognition
+CD34         EXTENDED       Immune / Hematopoiesis                 CD34; hematopoietic progenitor cell marker
+CD53         EXTENDED       Immune / Macrophage                    Tetraspanin CD53; leukocyte activation and signaling
+CD8B2        PRIMARY        Immune / T & NK cell                   CD8 beta chain 2; cytotoxic T-cell marker
+CFB          EXTENDED       Complement / Innate immunity           Complement factor B; alternative complement pathway
+CFHR1        PRIMARY        Complement / Innate immunity           Complement factor H-related 1; regulates alternative pathway
+CFHR2        PRIMARY        Complement / Innate immunity           Complement factor H-related 2; competes with CFH
+CFHR3        PRIMARY        Complement / Innate immunity           Complement factor H-related 3; complement regulation
+CFHR4        PRIMARY        Complement / Innate immunity           Complement factor H-related 4; complement regulation
+CFHR5        PRIMARY        Complement / Innate immunity           Complement factor H-related 5; complement regulation
+CFI          EXTENDED       Complement / Innate immunity           Complement factor I; complement regulation
+CFL2         EXTENDED       Cytoskeleton / Actin                   Cofilin 2; actin filament depolymerization and dynamics
+CLEC4M       PRIMARY        Unknown/uncharacterized                No annotation available
+COX5A        EXTENDED       Mitochondrial / Respiratory chain      Cytochrome c oxidase subunit 5A; Complex IV electron transport
+CP           BOTH           Acute phase / Serum proteins           Ceruloplasmin; copper transport, iron oxidation, acute phase
+CR1L         PRIMARY        Complement / Innate immunity           Complement receptor 1-like; C3b/C4b binding
+CR2          PRIMARY        Complement / Innate immunity           Complement receptor 2 (CD21); B cell activation, C3d binding
+CYBB         BOTH           Oxidative stress / ROS                 NOX2 NADPH oxidase; superoxide production in phagocytes and neurons
+DBN1         EXTENDED       Neurological / Cytoskeleton            Drebrin; neuron-specific actin binding; reduced in Alzheimer disease
+DBT          EXTENDED       Metabolism / Amino acid                Dihydrolipoamide branched-chain transacylase; BCAA catabolism
+ENSP00000493607 PRIMARY        Unknown/uncharacterized                No annotation available
+FDFT1        EXTENDED       Lipid / Cholesterol metabolism         Squalene synthase; rate-limiting cholesterol biosynthesis step
+FECH         EXTENDED       Mitochondrial / Iron-Heme              Ferrochelatase; heme synthesis, iron metabolism, mitochondrial
+FOXRED1      EXTENDED       Mitochondrial / Respiratory chain      FAD-dependent oxidoreductase; Complex I assembly factor
+GCLM         EXTENDED       Oxidative stress / Glutathione         Glutamate-cysteine ligase modifier; glutathione synthesis
+GGT5         EXTENDED       Oxidative stress / Glutathione         Gamma-glutamyltransferase 5; leukotriene/glutathione metabolism
+GP2          PRIMARY        Secreted / Exocrine                    Glycoprotein 2; pancreatic acinar and M-cell secretory protein
+GPX3         EXTENDED       Oxidative stress / Glutathione         Glutathione peroxidase 3; plasma antioxidant defense
+GSTM1        EXTENDED       Oxidative stress / Glutathione         Glutathione S-transferase mu 1; detoxification, oxidative stress
+GTF2A2       EXTENDED       Transcription                          General transcription factor IIA subunit 2; RNA pol II basal transcription
+HLA-C        BOTH           Immune / Antigen presentation          MHC class I; antigen presentation to cytotoxic T cells
+HLA-DRA      EXTENDED       Immune / Antigen presentation          MHC class II alpha; antigen presentation to helper T cells
+HLA-DRB5     EXTENDED       Immune / Antigen presentation          MHC class II beta; antigen presentation
+HMGCS1       EXTENDED       Lipid / Cholesterol metabolism         HMG-CoA synthase; mevalonate/cholesterol/ketone body synthesis
+HP           PRIMARY        Acute phase / Serum proteins           Haptoglobin; binds free hemoglobin, acute phase reactant
+HPX          PRIMARY        Acute phase / Serum proteins           Hemopexin; heme scavenger, acute phase reactant
+HRG          PRIMARY        Acute phase / Serum proteins           Histidine-rich glycoprotein; coagulation and immune modulation
+HSPD1        EXTENDED       Mitochondrial / Chaperone              HSP60; mitochondrial chaperone, protein folding in organelle
+ICAM1        EXTENDED       Immune / Cell adhesion                 ICAM-1; leukocyte adhesion, inflammation
+ILK          EXTENDED       Cytoskeleton / Cell adhesion           Integrin-linked kinase; couples integrins to actin cytoskeleton
+IQGAP1       EXTENDED       Cytoskeleton / Cell adhesion           IQGAP1; scaffold for Rac1/Cdc42, actin dynamics, cell migration
+ISCU         EXTENDED       Mitochondrial / Iron-Heme              Iron-sulfur cluster assembly; Fe-S cluster scaffold in mitochondria
+ITGAM        PRIMARY        Immune / Macrophage                    Integrin alpha M (CD11b); complement receptor 3, myeloid cell adhesion
+ITGB2        EXTENDED       Immune / Cell adhesion                 Integrin beta 2; leukocyte adhesion and migration
+ITGB3        EXTENDED       Cytoskeleton / Cell adhesion           Integrin beta 3; platelet aggregation, fibronectin/vitronectin receptor
+ITGB8        EXTENDED       Cytoskeleton / Cell adhesion           Integrin beta 8; TGF-beta activation, angiogenesis
+ITIH4        BOTH           Acute phase / Serum proteins           Inter-alpha-trypsin inhibitor heavy chain 4; acute phase, ECM
+KIAA1841     PRIMARY        Unknown/uncharacterized                No annotation available
+KIR2DL3      PRIMARY        Immune / T & NK cell                   Killer cell immunoglobulin-like receptor; NK cell inhibitory receptor
+KIR3DL2      PRIMARY        Immune / T & NK cell                   Killer cell immunoglobulin-like receptor; NK cell inhibitory receptor
+KIR3DL3      PRIMARY        Immune / T & NK cell                   Killer cell immunoglobulin-like receptor; NK cell function
+KLRC3-2      PRIMARY        Immune / T & NK cell                   NKG2E; NK cell activating/inhibitory receptor
+LCE3B        PRIMARY        Unknown/uncharacterized                No annotation available
+LCP1         EXTENDED       Immune / Macrophage                    L-plastin; actin bundling in leukocytes, immune cell motility
+LCP2         EXTENDED       Immune / T & NK cell                   SLP-76; T cell receptor signaling adapter
+LMLN         PRIMARY        Protease / GPI                         Leishmanolysin-like peptidase; GPI-anchored metalloprotease
+MBL2         PRIMARY        Complement / Innate immunity           Mannose-binding lectin 2; lectin pathway innate immunity
+MBP          EXTENDED       Neurological / Myelin                  Myelin basic protein; major structural myelin component; MS autoantigen
+MIEF1-2      PRIMARY        Mitochondrial / Dynamics               Mitochondrial elongation factor 1; mitochondrial fission regulation
+MPO          PRIMARY        Oxidative stress / ROS                 Myeloperoxidase; neutrophil ROS production, neuroinflammation
+MRPL19       EXTENDED       Mitochondrial / Ribosome               Mitochondrial ribosomal protein L19; mitochondrial translation
+MRPL37       BOTH           Mitochondrial / Ribosome               Mitochondrial ribosomal protein L37; mitochondrial translation
+MYBPH        PRIMARY        Cytoskeleton / Motor protein           Myosin binding protein H; thick filament assembly
+MYL6         EXTENDED       Cytoskeleton / Motor protein           Myosin light chain 6; non-muscle myosin II, cytoskeletal contraction
+NCAM1        EXTENDED       Neurological / Adhesion                Neural cell adhesion molecule 1; neuronal migration, synaptogenesis
+NDUFA12      EXTENDED       Mitochondrial / Respiratory chain      NADH dehydrogenase subunit A12; Complex I oxidative phosphorylation
+NICN1        PRIMARY        Unknown/uncharacterized                No annotation available
+NIPSNAP3B    PRIMARY        Unknown/uncharacterized                No annotation available
+NOX3         PRIMARY        Oxidative stress / ROS                 NADPH oxidase 3; inner ear ROS production
+NOXA1        PRIMARY        Oxidative stress / ROS                 NADPH oxidase activator 1; NOX1 complex component
+NOXO1        PRIMARY        Oxidative stress / ROS                 NADPH oxidase organizer 1; NOX1 complex component
+ORM1         PRIMARY        Acute phase / Serum proteins           Alpha-1-acid glycoprotein 1; major positive acute phase protein
+ORM2         PRIMARY        Acute phase / Serum proteins           Alpha-1-acid glycoprotein 2; major positive acute phase protein
+OSBPL10      PRIMARY        Lipid / Cholesterol metabolism         Oxysterol-binding protein-like 10; lipid sensing and transfer
+OSBPL11      PRIMARY        Lipid / Cholesterol metabolism         Oxysterol-binding protein-like 11; lipid metabolism
+OSBPL9       PRIMARY        Lipid / Cholesterol metabolism         Oxysterol-binding protein-like 9; lipid transfer, ER-membrane contact
+PCCA         EXTENDED       Metabolism / Amino acid                Propionyl-CoA carboxylase alpha; propionic acid catabolism
+POLR2E       EXTENDED       Transcription                          RNA polymerase II subunit E; shared pol II/III subunit
+PSORS1C1     PRIMARY        Immune / Antigen presentation          Psoriasis susceptibility candidate gene 1; MHC region immune gene
+PTPRC        EXTENDED       Immune / T & NK cell                   CD45; essential phosphatase for T and B cell signaling
+SERPINA3     BOTH           Acute phase / Serum proteins           Alpha-1-antichymotrypsin; serine protease inhibitor, acute phase
+STIP1        EXTENDED       Proteostasis / Chaperone               HOP/STIP1; HSP70-HSP90 co-chaperone, prion protein receptor
+TBC1D19      PRIMARY        Unknown/uncharacterized                No annotation available
+TNXB         EXTENDED       ECM / Cell adhesion                    Tenascin-XB; ECM glycoprotein, collagen fibrillogenesis
+TPGS1        PRIMARY        Cytoskeleton / Microtubule             Tubulin polyglutamylase subunit 1; tubulin post-translational modification
+TPGS2        PRIMARY        Cytoskeleton / Microtubule             Tubulin polyglutamylase subunit 2; tubulin modification complex
+TRIM45       PRIMARY        Unknown/uncharacterized                No annotation available
+TTLL1        PRIMARY        Cytoskeleton / Microtubule             Tubulin tyrosine ligase-like 1; tubulin glutamylation (axoneme/cilia)
+TTR          PRIMARY        Acute phase / Serum proteins           Transthyretin; thyroid hormone/retinol transport; amyloidogenic
+VSIG4        PRIMARY        Complement / Innate immunity           V-set immunoglobulin domain 4; complement receptor on macrophages
+VTN          EXTENDED       ECM / Cell adhesion                    Vitronectin; ECM protein, coagulation, complement regulation
+
+STEP 3 — DOMINANT BIOLOGICAL THEMES
+------------------------------------------------------------
+Category                                       Count
+-------------------------------------------------------
+Complement / Neuroinflammation                    34
+Cytoskeleton / Motor proteins                     11
+Acute phase response                              11
+Mitochondrial dysfunction                          9
+Oxidative stress / Neuroinflammation               9
+Lipid / Cholesterol metabolism                     6
+Neurological / CNS proteins                        5
+Other                                              4
+Metabolism / Other                                 2
+ECM / Structural                                   2
+Proteostasis / Chaperone                           1
+
+Category breakdown by network:
+  PRIMARY:
+    Complement / Neuroinflammation              22
+    Acute phase response                        11
+    Cytoskeleton / Motor proteins               5
+    Oxidative stress / Neuroinflammation        5
+    Lipid / Cholesterol metabolism              4
+    Mitochondrial dysfunction                   2
+    Other                                       2
+  EXTENDED:
+    Complement / Neuroinflammation              16
+    Mitochondrial dysfunction                   8
+    Cytoskeleton / Motor proteins               6
+    Neurological / CNS proteins                 5
+    Oxidative stress / Neuroinflammation        5
+    Acute phase response                        3
+    Lipid / Cholesterol metabolism              3
+    Metabolism / Other                          2
+    ECM / Structural                            2
+    Other                                       2
+    Proteostasis / Chaperone                    1
+
+STEP 4 — DISEASE IDENTIFICATION
+================================================================================
+
+
+CANDIDATE DISEASE: Amyotrophic Lateral Sclerosis (ALS)
+SUBTYPE / ASPECT:  Neuroinflammatory and multi-system proteomic signature
+                   (likely from CSF and/or plasma proteomics of ALS patients)
+
+CONFIDENCE: Medium-High
+
+REASONING
+---------
+The combined protein landscape of both networks creates a highly specific
+multi-system signature that most closely matches ALS:
+
+1. NEUROINFLAMMATION & COMPLEMENT ACTIVATION (strongest signal)
+   - Primary network: CFHR1, CFHR2, CFHR3, CFHR4, CFHR5, CR2, CR1L, MBL2,
+     C3, C1S, C5AR2, VSIG4, ITGAM — an unusually dense cluster of complement
+     regulators and receptors.
+   - Extended network: CFB, CFI, C3, C1S — alternative pathway activation.
+   - Complement activation is a well-documented pathological feature of ALS,
+     with C3, C1q, and CFHR proteins elevated in ALS CSF/plasma.
+   - ITGAM (CD11b) and CD163 (M2 macrophage marker) point to microglia/
+     macrophage-mediated neuroinflammation — central to ALS pathology.
+
+2. OXIDATIVE STRESS & NADPH OXIDASE (strong signal)
+   - Primary: CYBB (NOX2), NOXA1, NOXO1, NOX3, MPO — the full NADPH oxidase
+     complex is represented, indicating active ROS generation.
+   - Extended: GCLM, GGT5, GPX3, GSTM1 — antioxidant response (glutathione
+     pathway) engaged as a counter-response.
+   - Oxidative stress through NOX2/ROS is a hallmark of ALS motor neuron
+     degeneration; SOD1-ALS models show this prominently.
+
+3. MITOCHONDRIAL DYSFUNCTION (strong signal)
+   - Extended: NDUFA12 (Complex I), COX5A (Complex IV), FECH, ISCU, FOXRED1,
+     HSPD1 (HSP60), MRPL37, MRPL19.
+   - Mitochondrial dysfunction is one of the earliest and most consistent
+     pathological findings in ALS motor neurons.
+
+4. NEUROLOGICAL / CNS-SPECIFIC PROTEINS
+   - MBP (Myelin Basic Protein): present in ALS CSF due to oligodendrocyte/
+     myelin pathology around motor axons.
+   - NCAM1: neural adhesion; altered in ALS.
+   - DBN1 (Drebrin): neuronal actin-binding protein, reduced in ALS and AD.
+   - ABAT + ALDH5A1: GABA catabolism; inhibitory interneuron loss in ALS
+     drives GABAergic imbalance.
+
+5. ACUTE PHASE RESPONSE
+   - Primary: A2M, AHSG, HP, HPX, ORM1, ORM2, SERPINA3, ITIH4, TTR, CP.
+   - This large cluster of positive and negative acute phase proteins reflects
+     systemic inflammation, consistent with ALS blood/plasma profiles.
+   - TTR (transthyretin) is reduced in ALS CSF — it may be included as a
+     network seed.
+
+6. LIPID / CHOLESTEROL DYSREGULATION
+   - ABCA1, OSBPL9/10/11, FDFT1, HMGCS1 — cholesterol metabolism is disrupted
+     in ALS; ABCA1-mediated cholesterol efflux in glia is altered.
+
+7. NK / CYTOTOXIC IMMUNE CELLS
+   - KIR2DL3, KIR3DL2, KIR3DL3, KLRC3-2, CD8B2, PTPRC, LCP2 — elevated NK
+     and cytotoxic T cell activity has been observed in ALS patient blood.
+
+WHY NOT OTHER DISEASES
+----------------------
+- Multiple Sclerosis: MBP is the key MS autoantigen, but MS lacks the
+  CFHR1-5 cluster, the NADPH oxidase complex, and the GABA/mitochondrial
+  signature seen here. MS networks would show more adaptive immune/Th17 genes.
+- Alzheimer's Disease: CFHR1-5 and A2M appear in AD too, and DBN1 is reduced
+  in AD. However, AD networks lack the NADPH oxidase cluster (NOXA1/NOXO1),
+  the GABA enzyme pair (ABAT/ALDH5A1), and the MBP-NCAM1 motor neuron pattern.
+- Parkinson's Disease: PD networks typically show alpha-synuclein, LRRK2,
+  Parkin/PINK1 pathway — none present here.
+
+TOP 5 MOST DIAGNOSTIC PROTEINS
+-------------------------------
+1. MBP    — Myelin Basic Protein: motor neuron/oligodendrocyte pathology;
+            elevated in ALS CSF, not a typical plasma protein
+2. CFHR1-5 — Complete cluster of complement H-related proteins; linked to
+            dysregulation of alternative complement in ALS neuroinflammation
+3. CYBB + NOXA1 + NOXO1 + NOX3 — Full NADPH oxidase assembly; ROS-mediated
+            motor neuron death is a defining ALS mechanism
+4. ABAT   — GABA aminotransferase; inhibitory interneuron/GABAergic dysfunction
+            is documented in ALS spinal cord and cortex
+5. NDUFA12 + COX5A + FOXRED1 — Mitochondrial Complex I/IV; bioenergetic
+            failure in motor neurons is an early ALS hallmark
+
+ALTERNATIVE CANDIDATES (lower confidence)
+------------------------------------------
+- Hereditary Transthyretin Amyloidosis (hATTR): TTR present + amyloid link,
+  but hATTR networks wouldn't have CFHR cluster or GABA enzymes.
+- Age-related Macular Degeneration (AMD): CFHR1-5 are the canonical AMD risk
+  genes, but AMD lacks the neurological/GABA/mitochondrial features.
+- ALS + FTD overlap: possible, given the neuroinflammatory and cognitive
+  proteome overlap, but motor neuron proteins are more prominent.
+
+SUMMARY
+-------
+The two networks together describe a disease with:
+  (a) heavy complement/neuroinflammatory activation in both blood and CNS
+  (b) oxidative stress (NOX complex) driving cell death
+  (c) mitochondrial energy failure
+  (d) GABA inhibitory circuit dysfunction
+  (e) myelin/motor axon pathology (MBP, NCAM1)
+  (f) systemic acute phase response
+
+This multi-system profile — motor neuron + neuroinflammation + mitochondria +
+oxidative stress + GABA — is most consistent with ALS (Amyotrophic Lateral
+Sclerosis), likely reflecting proteomics data from two biological compartments
+(e.g., primary = blood/plasma, extended = CSF or spinal cord tissue).
