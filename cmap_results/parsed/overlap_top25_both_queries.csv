@@ -1,0 +1,7 @@
+pert_iname,Q1_raw_cs,Q2_raw_cs,mean_cs,moa,target_name,Q1_rank,Q2_rank
+tanaproget,-0.5778,-0.3646,-0.47119999999999995,Progesterone receptor agonist,PGR,1,11
+testosterone,-0.5212,-0.3872,-0.4542,Androgen receptor agonist,AR|CYP2C19|CYP2C8|CYP3A5|CYP19A1,4,3
+pregnenolone,-0.4966,-0.3589,-0.42774999999999996,Glutamate receptor modulator,PGR|CYP17A1|SULT2B1,7,15
+aloisine,-0.4898,-0.349,-0.4194,CDK inhibitor|CFTR channel agonist|GSK inhibitor,CDK2,12,24
+oxiconazole,-0.4787,-0.3571,-0.4179,Bacterial cell wall synthesis inhibitor,,17,19
+cytarabine,-0.4717,-0.3557,-0.4137,Ribonucleoside reductase inhibitor,POLA1|POLB|POLD1|POLE,23,21

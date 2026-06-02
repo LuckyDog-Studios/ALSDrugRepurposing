@@ -11,3 +11,7 @@ sark_data/
 pride_data/
 de_results/
 datasets/
+
+# Raw CMap downloaded data — files too large for git (ncs.gct=167MB, query_result.gct=59MB)
+cmap_results/query_1_cmap_downloaded/
+cmap_results/query_2_cmap_downloaded/

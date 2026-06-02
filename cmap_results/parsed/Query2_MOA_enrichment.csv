@@ -1,0 +1,730 @@
+moa_term,count_top50,count_all,enrichment_ratio
+Glycosylation inhibitor,1,2,134.96
+Testosterone receptor antagonist,1,3,89.9733
+Furoquinoline alkaloid,1,4,67.48
+Glutamate receptor modulator,1,5,53.984
+Polar auxin transport inhibitor,1,6,44.9867
+Mineralocorticoid receptor antagonist,1,6,44.9867
+Prostacyclin analog,1,7,38.56
+CFTR channel agonist,1,8,33.74
+Platelet aggregation inhibitor,1,17,15.8776
+Hydroxycarboxylic acid receptor agonist,1,17,15.8776
+Bacterial DNA Gyrase inhibitor,1,17,15.8776
+Ribonucleoside reductase inhibitor,2,39,13.8421
+DNA dependent protein kinase inhibitor,1,20,13.496
+Serine/threonine kinase inhibitor,1,22,12.2691
+Androgen receptor agonist,1,22,12.2691
+LRRK inhibitor,1,25,10.7968
+Protein synthesis inhibitor,3,81,9.997
+Cholesterol inhibitor,1,29,9.3076
+ACE inhibitor,1,32,8.435
+Prostanoid receptor agonist,1,34,7.9388
+CC chemokine receptor antagonist,1,36,7.4978
+CDC inhibitor,1,36,7.4978
+Gamma secretase inhibitor,1,37,7.2951
+Progesterone receptor agonist,2,75,7.1979
+BCL inhibitor,2,86,6.2772
+Casein kinase inhibitor,1,50,5.3984
+Androgen receptor antagonist,1,51,5.2925
+TGF-beta receptor inhibitor,1,51,5.2925
+Acetylcholinesterase inhibitor,1,54,4.9985
+Adrenergic receptor agonist,2,112,4.82
+Rho associated kinase inhibitor,1,58,4.6538
+Bacterial cell wall synthesis inhibitor,1,66,4.0897
+PLK inhibitor,2,134,4.0287
+Phosphodiesterase inhibitor,2,143,3.7751
+Syk inhibitor,1,75,3.5989
+Acetylcholine receptor antagonist,1,83,3.252
+IKK inhibitor,1,102,2.6463
+GSK inhibitor,1,105,2.5707
+Serotonin receptor antagonist,2,243,2.2216
+Serotonin receptor agonist,1,129,2.0924
+Histamine receptor antagonist,1,135,1.9994
+MTOR inhibitor,2,280,1.928
+RAF inhibitor,1,158,1.7084
+Adrenergic receptor antagonist,1,176,1.5336
+Aurora kinase inhibitor,1,188,1.4357
+Glucocorticoid receptor agonist,1,230,1.1736
+CDK inhibitor,1,258,1.0462
+Tubulin inhibitor,1,275,0.9815
+Dopamine receptor antagonist,1,275,0.9815
+HDAC inhibitor,1,302,0.8938
+Cholinergic receptor agonist,0,3,0.0
+DNA inhibitor,0,204,0.0
+Anti-inflammatory,0,16,0.0
+Antioxidant,0,16,0.0
+HSP inhibitor,0,117,0.0
+NFKB inhibitor,0,174,0.0
+Topoisomerase inhibitor,0,218,0.0
+AKT inhibitor,0,161,0.0
+FGFR inhibitor,0,109,0.0
+VEGFR inhibitor,0,332,0.0
+Glucokinase activator,0,11,0.0
+Immunosuppressant,0,47,0.0
+XIAP inhibitor,0,21,0.0
+PIM inhibitor,0,25,0.0
+Lipid peroxidase inhibitor,0,17,0.0
+Opioid receptor antagonist,0,42,0.0
+HCV inhibitor,0,39,0.0
+Anesthetic - local,0,23,0.0
+Mucus protecting agent,0,10,0.0
+Adenosine receptor agonist,0,24,0.0
+Mitochondrial inhibitor,0,31,0.0
+Phosphatase inhibitor,0,10,0.0
+Immunostimulant,0,11,0.0
+Lipoxygenase inhibitor,0,69,0.0
+Opioid receptor agonist,0,44,0.0
+Thromboxane synthase inhibitor,0,14,0.0
+Matrix metalloprotease inhibitor,0,19,0.0
+Angiogenesis inhibitor,0,42,0.0
+Bcr-Abl inhibitor,0,139,0.0
+Abl inhibitor,0,70,0.0
+Estrogen receptor agonist,0,92,0.0
+Tyrosine kinase inhibitor,0,135,0.0
+5-alpha reductase inhibitor,0,9,0.0
+Calcium channel blocker,0,167,0.0
+MDM inhibitor,0,40,0.0
+Progesterone receptor antagonist,0,21,0.0
+Glutamate receptor antagonist,0,120,0.0
+Kainate receptor antagonist,0,8,0.0
+MAP kinase inhibitor,0,105,0.0
+Histamine receptor agonist,0,23,0.0
+PKC inhibitor,0,120,0.0
+TIE inhibitor,0,8,0.0
+KIT inhibitor,0,182,0.0
+PDGFR inhibitor,0,242,0.0
+Apoptosis stimulant,0,71,0.0
+RNA polymerase inhibitor,0,44,0.0
+Bacterial DNA inhibitor,0,43,0.0
+Vitamin D receptor agonist,0,49,0.0
+CHK inhibitor,0,42,0.0
+Insulin sensitizer,0,54,0.0
+PPAR receptor agonist,0,105,0.0
+Adenosine receptor antagonist,0,62,0.0
+AMPK activator,0,9,0.0
+JAK inhibitor,0,190,0.0
+Sodium channel inhibitor,0,96,0.0
+Melatonin receptor agonist,0,7,0.0
+Potassium channel activator,0,26,0.0
+Thromboxane receptor agonist,0,2,0.0
+Adenosylhomocysteinase inhibitor,0,4,0.0
+Insulin secretagogue,0,27,0.0
+PARP inhibitor,0,83,0.0
+GLI antagonist,0,8,0.0
+Membrane integrity inhibitor,0,21,0.0
+GABA receptor modulator,0,6,0.0
+Membrane permeability inhibitor,0,3,0.0
+Imidazoline receptor agonist,0,18,0.0
+Histone demethylase inhibitor,0,24,0.0
+LIM kinase activator,0,10,0.0
+Rho associated kinase activator,0,10,0.0
+Angiotensin receptor antagonist,0,37,0.0
+FLT3 inhibitor,0,191,0.0
+Protein kinase inhibitor,0,84,0.0
+PDK inhibitor,0,33,0.0
+Proteasome inhibitor,0,70,0.0
+LCK Inhibitor,0,5,0.0
+Xanthine oxidase inhibitor,0,11,0.0
+Ras GTPase inhibitor,0,8,0.0
+FAAH inhibitor,0,33,0.0
+11-beta-HSD1 inhibitor,0,25,0.0
+MEK inhibitor,0,177,0.0
+Breast cancer resistance protein inhibitor,0,13,0.0
+Cyclooxygenase inhibitor,0,178,0.0
+Glutathione peroxidase agonist,0,3,0.0
+H+/K+-ATPase inhibitor,0,3,0.0
+Nitric oxide synthase inhibitor,0,30,0.0
+Urease inhibitor,0,3,0.0
+TRPV antagonist,0,19,0.0
+Benzodiazepine receptor agonist,0,29,0.0
+HSP inducer,0,12,0.0
+Muscle relaxant,0,18,0.0
+Potassium channel antagonist,0,59,0.0
+STAT inhibitor,0,42,0.0
+Bromodomain inhibitor,0,121,0.0
+ATR kinase inhibitor,0,30,0.0
+Bacterial 50S ribosomal subunit inhibitor,0,38,0.0
+Nootropic agent,0,4,0.0
+ATP channel blocker,0,24,0.0
+Aromatase inhibitor,0,30,0.0
+Tachykinin antagonist,0,29,0.0
+NADPH inhibitor,0,16,0.0
+Tankyrase inhibitor,0,11,0.0
+Dopamine receptor agonist,0,85,0.0
+Hydantoin antiepileptic,0,6,0.0
+Farnesyltransferase inhibitor,0,45,0.0
+Adenylyl cyclase inhibitor,0,6,0.0
+EGFR inhibitor,0,378,0.0
+Nitric oxide stimulant,0,9,0.0
+P38 MAPK inhibitor,0,111,0.0
+Ephrin inhibitor,0,61,0.0
+Src inhibitor,0,137,0.0
+Retinoid receptor agonist,0,96,0.0
+Nedd activating enzyme inhibitor,0,20,0.0
+Growth factor receptor inhibitor,0,14,0.0
+PI3K inhibitor,0,356,0.0
+Diacylglycerol O acyltransferase inhibitor,0,11,0.0
+Growth hormone secretagogue receptor agonist,0,6,0.0
+Prostanoid receptor antagonist,0,39,0.0
+MCL1 inhibitor,0,35,0.0
+Oxidizing agent,0,14,0.0
+Purinergic receptor antagonist,0,22,0.0
+Smoothened receptor antagonist,0,29,0.0
+Hedgehog pathway inhibitor,0,4,0.0
+"Indoleamine 2,3-dioxygenase inhibitor",0,8,0.0
+JNK inhibitor,0,52,0.0
+Cannabinoid receptor antagonist,0,29,0.0
+MRE11A exonuclease inhibitor,0,6,0.0
+Cell proliferation inhibitor,0,5,0.0
+Cytochrome P450 inhibitor,0,84,0.0
+Coloring agent,0,9,0.0
+Anti-pneumocystis agent,0,5,0.0
+Pharmacological chaperone,0,6,0.0
+Progestogen hormone,0,10,0.0
+SARS coronavirus 3C-like protease inhibitor,0,11,0.0
+ERBB2 inhibitor,0,29,0.0
+Histone lysine methyltransferase inhibitor,0,57,0.0
+Antifungal,0,5,0.0
+Estrogen receptor antagonist,0,64,0.0
+Transient receptor potential channel antagonist,0,4,0.0
+Macrophage activator,0,3,0.0
+Cytidine deaminase inhibitor,0,7,0.0
+Endothelin receptor antagonist,0,22,0.0
+SIRT inhibitor,0,30,0.0
+Antihistamine,0,4,0.0
+Reverse transcriptase inhibitor,0,16,0.0
+NAMPT inhibitor,0,17,0.0
+Sterol demethylase inhibitor,0,38,0.0
+ALK inhibitor,0,79,0.0
+Thromboxane receptor antagonist,0,10,0.0
+Antimalarial,0,21,0.0
+Carcinogen,0,61,0.0
+GABA receptor antagonist,0,48,0.0
+Acetylcholine release enhancer,0,3,0.0
+Dopamine release enhancer,0,3,0.0
+Phytotoxin,0,3,0.0
+Anthelmintic,0,11,0.0
+Somatostatin receptor agonist,0,5,0.0
+p53 inhibitor,0,14,0.0
+RET inhibitor,0,55,0.0
+NGF binding inhibitor,0,3,0.0
+PDK1 Inhibitor,0,14,0.0
+ATP channel activator,0,7,0.0
+Caspase inhibitor,0,28,0.0
+HIV inhibitor,0,50,0.0
+Protein synthesis stimulant,0,5,0.0
+Kinesin inhibitor,0,31,0.0
+PPAR receptor antagonist,0,16,0.0
+Leukotriene receptor antagonist,0,20,0.0
+RNA synthesis inhibitor,0,32,0.0
+Monoamine oxidase inhibitor,0,54,0.0
+ATM kinase inhibitor,0,42,0.0
+HMGCR inhibitor,0,67,0.0
+HCN channel antagonist,0,5,0.0
+Potassium channel blocker,0,6,0.0
+Cell cycle inhibitor,0,41,0.0
+Pyruvate dehydrogenase kinase inhibitor,0,9,0.0
+Alpha mannosidase inhibitor,0,2,0.0
+MET inhibitor,0,25,0.0
+Chelating agent,0,15,0.0
+Apolipoprotein expression enhancer,0,5,0.0
+Benzodiazepine receptor antagonist,0,18,0.0
+L3MBTL antagonist,0,5,0.0
+DNA synthesis inhibitor,0,22,0.0
+Thymidine phosphorylase inhibitor,0,2,0.0
+Antiviral,0,14,0.0
+ATPase inhibitor,0,64,0.0
+Aspartic protease inhibitor,0,4,0.0
+Aryl hydrocarbon receptor activator,0,5,0.0
+Neural stem cell inducer,0,19,0.0
+Bone resorption inhibitor,0,7,0.0
+CCK receptor antagonist,0,21,0.0
+Stearoyl-CoA desaturase inhibitor,0,5,0.0
+Free radical scavenger,0,7,0.0
+Corticosteroid agonist,0,32,0.0
+Dipeptidyl peptidase inhibitor,0,20,0.0
+Glutamate inhibitor,0,8,0.0
+Caspase activator,0,22,0.0
+Uric acid diuretic,0,1,0.0
+Thrombopoietin receptor agonist,0,2,0.0
+Phospholipase inhibitor,0,27,0.0
+Radiopaque medium,0,6,0.0
+Maternal embryonic leucine zipper kinase inhibitor,0,9,0.0
+Mitochondrial Na+/Ca2+ exchanger antagonist,0,4,0.0
+Sodium/calcium exchange inhibitor,0,4,0.0
+Autophagy inducer,0,3,0.0
+Vasopressin receptor agonist,0,4,0.0
+Binds HIV gp120 and inhibits HIV-1 entry into the neural cell line SK-N-MC,0,4,0.0
+Glucocorticoid receptor antagonist,0,19,0.0
+Phospholipase activator,0,7,0.0
+Cannabinoid receptor agonist,0,43,0.0
+ACAT inhibitor,0,22,0.0
+CAMP inhibitor,0,3,0.0
+IGF-1 inhibitor,0,58,0.0
+Carnitine palmitoyltransferase inhibitor,0,15,0.0
+Tyrosine phosphatase inhibitor,0,31,0.0
+P selectin inhibitor,0,6,0.0
+Inosine monophosphate dehydrogenase inhibitor,0,21,0.0
+BTK inhibitor,0,90,0.0
+Cytoplasmic tyrosine protein kinase BMX inhibitor,0,4,0.0
+Lipase inhibitor,0,8,0.0
+Beta secretase inhibitor,0,15,0.0
+Fatty acid synthase inhibitor,0,16,0.0
+LDL antioxidants,0,3,0.0
+Orexin receptor antagonist,0,9,0.0
+Neurotransmitter,0,2,0.0
+DNA directed DNA polymerase inhibitor,0,10,0.0
+Thymidylate synthase inhibitor,0,33,0.0
+Deubiquitinase inhibitor,0,2,0.0
+Photoactivated toxin,0,7,0.0
+Bacterial permeability inducer,0,14,0.0
+Bacterial antifolate,0,4,0.0
+Calmodulin inhibitor,0,22,0.0
+Collapsin response mediator protein stimulant,0,4,0.0
+Sodium channel blocker,0,6,0.0
+Vasopressin receptor antagonist,0,16,0.0
+Glutathione transferase inhibitor,0,13,0.0
+Protease inhibitor,0,8,0.0
+Serine/threonine protein phosphatase activator,0,3,0.0
+Beta amyloid inhibitor,0,17,0.0
+Bacterial 30S ribosomal subunit inhibitor,0,17,0.0
+Na/K-ATPase inhibitor,0,83,0.0
+Glyceraldehyde 3-phosphate dehydrogenase inhibitor,0,2,0.0
+Norepinephrine inhibitor,0,44,0.0
+Norepinephrine reuptake inhibitor,0,16,0.0
+Serotonin reuptake inhibitor,0,28,0.0
+Glutamate receptor agonist,0,14,0.0
+Inositol monophosphatase inhibitor,0,41,0.0
+Glutathione synthase stimulant,0,3,0.0
+Sigma receptor antagonist,0,29,0.0
+Renin inhibitor,0,3,0.0
+Dihydropyrimidine dehydrogenase inhibitor,0,2,0.0
+Fatty acid receptor agonist,0,5,0.0
+Free fatty acid receptor agonist,0,3,0.0
+G protein-coupled receptor agonist,0,11,0.0
+Thrombin inhibitor,0,19,0.0
+Serine protease inhibitor,0,12,0.0
+Algicide,0,10,0.0
+WEE1 kinase inhibitor,0,20,0.0
+Selective serotonin reuptake inhibitor (SSRI),0,22,0.0
+Aldose reductase inhibitor,0,13,0.0
+MRP inhibitor,0,3,0.0
+P-glycoprotein inhibitor,0,24,0.0
+Guanylate cyclase stimulant,0,3,0.0
+Glucosamine synthetase stimulant,0,2,0.0
+Cholesteryl ester transfer protein inhibitor,0,3,0.0
+Enoyl-[acyl-carrier-protein] reductase [NADH] inhibitor,0,7,0.0
+CBP bromodomain inhibitor,0,5,0.0
+Metalloproteinase inhibitor,0,21,0.0
+Arginase inhibitor,0,7,0.0
+Mucolytic,0,6,0.0
+Lactamase inhibitor,0,3,0.0
+Ribosomal protein inhibitor,0,10,0.0
+HIV integrase inhibitor,0,2,0.0
+NFKB activator,0,10,0.0
+Nitric oxide production inhibitor,0,27,0.0
+Glucosidase inhibitor,0,12,0.0
+Ion channel antagonist,0,10,0.0
+Carbonic anhydrase inhibitor,0,24,0.0
+Mineralocorticoid receptor agonist,0,13,0.0
+Constitutive androstane receptor (CAR) agonist,0,4,0.0
+PKA inhibitor,0,18,0.0
+IAP antagonist,0,4,0.0
+GABA receptor agonist,0,26,0.0
+Antithyroid agent,0,3,0.0
+Platelet activating factor receptor antagonist,0,11,0.0
+Glutaminase inhibitor,0,8,0.0
+Growth factor receptor activator,0,2,0.0
+Protein tyrosine kinase inhibitor,0,47,0.0
+Succinimide antiepileptic,0,3,0.0
+HGF receptor inhibitor,0,19,0.0
+Enkephalinase inhibitor,0,2,0.0
+Glucagon receptor antagonist,0,7,0.0
+Laxative,0,13,0.0
+Coagulation factor inhibitor,0,10,0.0
+Proton pump inhibitor,0,15,0.0
+Beta catenin inhibitor,0,28,0.0
+Integrin inhibitor,0,15,0.0
+Lanosterol demethylase inhibitor,0,9,0.0
+Sphingosine kinase inhibitor,0,11,0.0
+Ergoline alkaloid,0,1,0.0
+Vesicular monoamine transporter inhibitor,0,18,0.0
+Imidazoline ligand,0,11,0.0
+Glycolysis inhibitor,0,3,0.0
+Sphingosine 1 phosphate receptor agonist,0,4,0.0
+Structural glycoprotein antagonist,0,1,0.0
+DNA alkylating agent,0,26,0.0
+Alcohol dehydrogenase inhibitor,0,9,0.0
+Steroid,0,9,0.0
+Tyrosinase inhibitor,0,16,0.0
+Guanylyl cyclase activator,0,12,0.0
+Histone acetyltransferase inhibitor,0,29,0.0
+Selective estrogen receptor modulator (SERM),0,24,0.0
+Analgesic,0,2,0.0
+Chloride channel blocker,0,17,0.0
+Gap junction modulator,0,4,0.0
+Leukotriene inhibitor,0,30,0.0
+AMPK inhibitor,0,14,0.0
+Calcineurin inhibitor,0,30,0.0
+Vitamin K antagonist,0,5,0.0
+Aryl hydrocarbon receptor antagonist,0,15,0.0
+Survivin inhibitor,0,18,0.0
+Acetylcholine receptor agonist,0,53,0.0
+Solvent,0,2,0.0
+Voltage-gated sodium channel blocker,0,8,0.0
+Capillary stabilizing agent,0,4,0.0
+Nitric oxide scavenger,0,4,0.0
+Interferon inducer,0,9,0.0
+SIRT activator,0,12,0.0
+HIF Inhibitor,0,14,0.0
+P21 activated kinase inhibitor,0,13,0.0
+Eukaryotic translation initiation factor inhibitor,0,4,0.0
+Adenosine deaminase inhibitor,0,11,0.0
+Sulfonylurea,0,10,0.0
+Cadherin antagonist,0,1,0.0
+Telomerase inhibitor,0,22,0.0
+ITK inhibitor,0,28,0.0
+Lysophosphatidic acid receptor antagonist,0,3,0.0
+Importin inhibitor,0,11,0.0
+Melanin inhibitor,0,9,0.0
+Enzyme inducer,0,4,0.0
+Tricyclic antidepressant,0,31,0.0
+Flavanone glycoside,0,3,0.0
+Neuropeptide receptor antagonist,0,9,0.0
+Osteoclast inhibitor,0,1,0.0
+Purine antagonist,0,21,0.0
+TRPV agonist,0,30,0.0
+Motilin receptor agonist,0,5,0.0
+Fungal squalene epoxidase inhibitor,0,13,0.0
+NUR77 receptor agonist,0,2,0.0
+Oxytocin receptor antagonist,0,3,0.0
+Carboxamide antiepileptic,0,4,0.0
+Psychoactive drug,0,2,0.0
+Non-nucleoside reverse transcriptase inhibitor,0,7,0.0
+NADH-ubiquinone oxidoreductase (Complex I) inhibitor,0,9,0.0
+DNA repair enzyme inhibitor,0,7,0.0
+DNA directed DNA polymerase stimunlant,0,2,0.0
+Estrogenic component in oral contraceptives,0,2,0.0
+Cytosolic phospholipase inhibitor,0,9,0.0
+CFTR channel antagonist,0,7,0.0
+Nucleophosmin inhibitor,0,34,0.0
+Penicillin binding protein inhibitor,0,11,0.0
+O6-alkylguanine-DNA alkyltransferase inhibitor,0,2,0.0
+Dihydropteroate synthase inhibitor,0,1,0.0
+Guanylate cyclase activator,0,15,0.0
+Anti-inflammatory agent,0,3,0.0
+Cholinesterase inhibitor,0,11,0.0
+Antiarrhythmic,0,5,0.0
+Focal adhesion kinase inhibitor,0,40,0.0
+Delta 1 opioid receptor agonist,0,2,0.0
+ICAM1 inhibitor,0,4,0.0
+FXR agonist,0,2,0.0
+Omega 3 fatty acid stimulant,0,3,0.0
+Histone lysine demethylase inhibitor,0,15,0.0
+Lymphocyte inhibitor,0,4,0.0
+Reducing agent,0,8,0.0
+Interleukin receptor agonist,0,2,0.0
+Nociceptin/orphanin FQ (NOP) receptor antagonist,0,1,0.0
+TNF inhibitor,0,9,0.0
+Pyrrolizidine alkaloid,0,2,0.0
+Receptor tyrosine protein kinase inhibitor,0,16,0.0
+Src activator,0,5,0.0
+Lysophospholipid receptor agonist,0,2,0.0
+Cytokine production inhibitor,0,12,0.0
+p53 activator,0,18,0.0
+Drugs Acting on Androgen Receptor,0,8,0.0
+Thioredoxin inhibitor,0,14,0.0
+Plant alkaloid,0,6,0.0
+Glycine transporter inhibitor,0,4,0.0
+Purinergic receptor activator,0,1,0.0
+Kinase inhibitor,0,3,0.0
+Cytochrome P450 activator,0,5,0.0
+TIE tyrosine kinase inhibitor,0,9,0.0
+Butyrylcholinesterase inhibitor,0,13,0.0
+Retinoid receptor antagonist,0,9,0.0
+PABA antagonist,0,4,0.0
+Sigma receptor agonist,0,14,0.0
+Cystic fibrosis transmembrane conductance regulator inhibitor,0,2,0.0
+Mast cell stabilizer,0,2,0.0
+Dopamine receptor modulator,0,4,0.0
+TLR agonist,0,4,0.0
+Bacterial quorum sensing inhibitor,0,3,0.0
+Chromone,0,3,0.0
+Nematocide,0,5,0.0
+GAT inhibitor,0,6,0.0
+GABA uptake inhibitor,0,5,0.0
+Nitric oxide donor,0,4,0.0
+Pyruvate kinase isozyme activator,0,3,0.0
+Adenosine kinase inhibitor,0,11,0.0
+Slow afterhyperpolarization channel blocker,0,4,0.0
+WNT inhibitor,0,10,0.0
+Microsomal trigylceride transfer protein inhibitor,0,7,0.0
+Guanylyl cyclase inhibitor,0,14,0.0
+Tau aggregation inhibitor,0,10,0.0
+NTPDase inhibitor,0,1,0.0
+RET tyrosine kinase inhibitor,0,23,0.0
+Tumor necrosis factor production inhibitor,0,6,0.0
+Nicotinic receptor agonist,0,3,0.0
+ETV1 inhibitor,0,6,0.0
+LXR agonist,0,14,0.0
+ABC transporter expression enhancer,0,10,0.0
+ROR inverse agonist,0,5,0.0
+Mediator release inhibitor,0,14,0.0
+CAMP stimulant,0,6,0.0
+"Nuclear factor erythroid derived, like (NRF2) activator",0,4,0.0
+Retinoid receptor ligand,0,8,0.0
+Photosynthesis inhibitor,0,1,0.0
+Glucokinase inhibitor,0,6,0.0
+Bacterial protein synthesis inhibitor,0,3,0.0
+Folate receptor ligand,0,1,0.0
+Methionine aminopeptidase inhibitor,0,1,0.0
+Nucleoside reverse transcriptase inhibitor,0,8,0.0
+Ubiquitin C-terminal hydrolase inhibitor,0,4,0.0
+RIPK inhibitor,0,7,0.0
+Vitamin B,0,8,0.0
+Glucose dependent insulinotropic receptor agonist,0,7,0.0
+HIV protease inhibitor,0,13,0.0
+Quorum sensing signaling modulator,0,14,0.0
+Steryl sulfatase inhibitor,0,12,0.0
+Diuretic,0,8,0.0
+Calpain inhibitor,0,10,0.0
+Bacterial RNA polymerase inhibitor,0,4,0.0
+LTB4 inhibitor,0,6,0.0
+Adenylyl cyclase activator,0,15,0.0
+Steroidal progestin,0,8,0.0
+Ubiquitin-conjugating enzyme inhibitor,0,2,0.0
+TLR antagonist,0,12,0.0
+DNA intercalating agent,0,8,0.0
+LDL receptor activator,0,3,0.0
+Beta lactamase inhibitor,0,3,0.0
+Glycine receptor antagonist,0,8,0.0
+PFMRK inhibitor,0,6,0.0
+Lysophospholipid receptor antagonist,0,4,0.0
+DNA methyltransferase inhibitor,0,15,0.0
+Neuraminidase inhibitor,0,1,0.0
+Antitussive,0,3,0.0
+PKC activator,0,22,0.0
+Antimetabolite,0,6,0.0
+Ionophore,0,3,0.0
+Gamma glutamyltransferase Inhibitors,0,6,0.0
+Biliverdin reductase A activator,0,4,0.0
+Ceramidase inhibitor,0,5,0.0
+Cholinergic receptor antagonist,0,10,0.0
+Cathepsin inhibitor,0,17,0.0
+GSP agonist,0,3,0.0
+RAD51 inhibitor,0,10,0.0
+KDM2A inhibitor,0,7,0.0
+GABA gated chloride channel blocker,0,3,0.0
+Peptidase inhibitor,0,16,0.0
+Niemann-Pick C1-like 1 protein antagonist,0,4,0.0
+GABA aminotransferase activator,0,2,0.0
+Aryl hydrocarbon receptor ligand,0,1,0.0
+M5 modulator,0,2,0.0
+Thiazide diuretic,0,6,0.0
+Protein phosphatase inhibitor,0,20,0.0
+Calcium channel activator,0,12,0.0
+Tyrosine hydroxylase inhibitor,0,2,0.0
+Product of purine catabolism used in cosmetics,0,2,0.0
+Aldehyde dehydrogenase activator,0,2,0.0
+Protein kinase activator,0,1,0.0
+Aldehyde dehydrogenase inhibitor,0,7,0.0
+Mitochondrial oxidative phosphorylation uncoupler,0,15,0.0
+Chitin inhibitor,0,4,0.0
+Serine palmitoyltransferase inhibitor,0,2,0.0
+Macrophage inhibitor,0,8,0.0
+Helicase primase inhibitor,0,2,0.0
+"DEET, activator of fly antenna ionotropic receptor IR40a",0,4,0.0
+NRF2 activator,0,2,0.0
+KEAP1 ligand,0,2,0.0
+Neurogenesis of non-pluripotent C2C12 myoblast inducer,0,3,0.0
+Diacylglycerol kinase inhibitor,0,2,0.0
+Organic compound,0,2,0.0
+Chymotrypsin inhibitor,0,7,0.0
+Mutant kinase inhibitor,0,4,0.0
+Radical formation stimulant,0,3,0.0
+Dehydrogenase inhibitor,0,24,0.0
+Luteinizing hormone releasing hormone agonist,0,1,0.0
+Paclitaxel precursor,0,6,0.0
+Neprilysin inhibitor,0,3,0.0
+Nitric oxide synthase stimulant,0,3,0.0
+Phenylalanine 4-hydroxylase stimulant,0,3,0.0
+Lipocortin synthesis stimulant,0,7,0.0
+Calcitonin antagonist,0,3,0.0
+CCR antagonist,0,2,0.0
+Monoacylglycerol lipase inhibitor,0,1,0.0
+Sterol regulatory element binding protein (SREBP) inhibitor,0,1,0.0
+CRTH receptor antagonist,0,3,0.0
+D-Amino Acid Oxidase Inhibitor,0,2,0.0
+Neurotransmitter agonist,0,2,0.0
+Dihydroorotate dehydrogenase inhibitor,0,14,0.0
+Neurotrophic agent,0,1,0.0
+"Fungal 1,3-beta-D-glucan synthase inhibitor",0,3,0.0
+Bradykinin receptor antagonist,0,5,0.0
+Tubulin polymerization inhibitor,0,4,0.0
+Lipoprotein lipase activator,0,2,0.0
+Centromere associated protein inhibitor,0,1,0.0
+Niacinamide phosphoribosyltransferase inhibitor,0,5,0.0
+Hemoglobin antagonist,0,6,0.0
+Thyroid hormone stimulant,0,5,0.0
+Interleukin inhibitor,0,14,0.0
+Gastrin inhibitor,0,4,0.0
+Elastase inhibitor,0,3,0.0
+3beta-hydroxy-delta5-steroid dehydrogenase inhibitor,0,2,0.0
+Sodium channel activator,0,12,0.0
+Sodium/glucose cotransporter inhibitor,0,2,0.0
+Dihydrofolate reductase inhibitor,0,21,0.0
+Antibiotic,0,11,0.0
+CMV terminase inhibitor,0,2,0.0
+Dystrophin stimulant,0,1,0.0
+Ornithine decarboxylase inhibitor,0,1,0.0
+Monopolar spindle 1 kinase inhibitor,0,4,0.0
+Gonadotropin receptor antagonist,0,4,0.0
+Haemostatic agent,0,5,0.0
+Smoothened receptor agonist,0,8,0.0
+Azo dye used in titrations to detect metal ions,0,4,0.0
+Atherogenesis inhibitor,0,3,0.0
+Heparin activation inhibitor,0,2,0.0
+Neural Wiskott-Aldrich syndrome protein inhibitor,0,8,0.0
+Leukocyte elastase inhibitor,0,7,0.0
+Antipruritic,0,3,0.0
+DNA binding agent,0,11,0.0
+Increases arterial blood pressure,0,1,0.0
+Uricosuric,0,1,0.0
+Growth hormone releasing peptide ligand agonist,0,1,0.0
+Topical sunscreen agent,0,3,0.0
+Indicator dye,0,4,0.0
+Choleretic agent,0,1,0.0
+Autotaxin inhibitor,0,4,0.0
+Thyroid hormone inhibitor,0,2,0.0
+Antiseptic,0,3,0.0
+Catechol O methyltransferase inhibitor,0,10,0.0
+Tripeptidyl peptidase inhibitor,0,2,0.0
+Phosphofructokinase inhibitor,0,1,0.0
+Antiepileptic,0,2,0.0
+CC chemokine receptor agonist,0,2,0.0
+Mycotoxin,0,2,0.0
+Cannabinoid metabolite,0,1,0.0
+Glucosyltransferase inhibitor,0,13,0.0
+ARFGAP inhibitor,0,10,0.0
+Aspartate carbamoyltransferase inhibitor,0,1,0.0
+ATP synthase inhibitor,0,14,0.0
+SREBP inhibitor,0,1,0.0
+Exportin antagonist,0,15,0.0
+Hexokinase inhibitor,0,3,0.0
+HIF modulator,0,8,0.0
+Liver receptor homolog inverse agonist,0,3,0.0
+Dopamine analog,0,4,0.0
+Vasodilator,0,4,0.0
+Antirheumatic drug,0,1,0.0
+Dehydropeptidase inhibitor,0,2,0.0
+Differentiation inducer,0,3,0.0
+Antiprotozoal,0,8,0.0
+CDK expression enhancer,0,5,0.0
+ID1 expression inhibitor,0,5,0.0
+Calmodulin antagonist,0,2,0.0
+Phenylalanyl tRNA synthetase inhibitor,0,5,0.0
+DDR1 inhibitor,0,3,0.0
+Dopamine uptake inhibitor,0,4,0.0
+Inhibitor of methylation of endogenous isoprenylated proteins,0,3,0.0
+FXR antagonist,0,7,0.0
+Dihydroneopterin aldolase inhibitor,0,1,0.0
+Bile acid,0,2,0.0
+CAR agonist,0,1,0.0
+Respiratory stimulant,0,3,0.0
+Inactive testosterone analog,0,2,0.0
+Antihypertensive,0,1,0.0
+Carboxylesterase inhibitor,0,5,0.0
+KPL-1 tumor suppressor,0,1,0.0
+CRF receptor antagonist,0,1,0.0
+Isoflavone,0,1,0.0
+Internal standard for NMR spectroscopy,0,2,0.0
+CYP1B1 inhibitor,0,1,0.0
+ARF inhibitor,0,2,0.0
+Ganglionic blocker,0,3,0.0
+Cardiomyogenesis inducer,0,1,0.0
+Aryl hydrocarbon receptor agonist,0,5,0.0
+Inhibitor of the binding of homoquinolinic acid to non-NMDA sensitive sites,0,2,0.0
+Melatonin receptor antagonist,0,1,0.0
+Vitamin K,0,1,0.0
+Cysteine peptidase inhibitor,0,4,0.0
+Isoleucyl-tRNA synthetase inhibitor,0,2,0.0
+Other antibiotic,0,4,0.0
+Anti-HCVE2,0,1,0.0
+Synthetic estrogen,0,4,0.0
+Bacterial membrane integrity inhibitor,0,2,0.0
+PXR ligand,0,1,0.0
+Ribonucleotide reductase inhibitor,0,8,0.0
+DNA mismatch binding,0,1,0.0
+Metabolite of ethanol with a role in ethanol addiction,0,1,0.0
+Estrogenic metabolite,0,2,0.0
+Enhancer of synaptic activity,0,1,0.0
+BIG1 inhibitor,0,3,0.0
+Imidazoline receptor ligand,0,4,0.0
+DOT1L inhibitor,0,4,0.0
+AXL kinase inhibitor,0,12,0.0
+Hepatocyte growth factor receptor inhibitor,0,3,0.0
+HMTase inhibitor,0,6,0.0
+Histone Acetyltransferase activator,0,1,0.0
+PRMT inhibitor,0,9,0.0
+DYRK inhibitor,0,14,0.0
+MER tyrosine kinase inhibitor,0,2,0.0
+PXR agonist,0,4,0.0
+Dynamin inhibitor,0,3,0.0
+Heme oxygenase inhibitor,0,1,0.0
+Hydroxyphenylpyruvate dioxygenase inhibitor,0,1,0.0
+USP14 inhibitor,0,2,0.0
+Fructose biphosphate inhibitor,0,2,0.0
+Discoidin domain receptor inhibitor,0,2,0.0
+Ubiquitin specific protease inhibitor,0,4,0.0
+HDAC activator,0,1,0.0
+WNT agonist,0,2,0.0
+Brefeldin A inhibited guanine nucleotide exchange protein inhibitors,0,1,0.0
+Golgi-specific brefeldin A-resistance guanine nucleotide exchange factor inhibitor,0,1,0.0
+Hypoxia inducible factor activator,0,7,0.0
+CLK inhibitor,0,5,0.0
+"17,20 lyase inhibitor",0,1,0.0
+Steroid sulfatase inhibitor,0,1,0.0
+Androgen biosynthesis inhibitor,0,1,0.0
+Glutathione Reductase (NADPH) Activators,0,3,0.0
+Heme Oxygenase Activators,0,3,0.0
+IKK-1 (IKK-alpha) Inhibitors,0,3,0.0
+Secretory phospholipase inhibitor,0,1,0.0
+Opioid receptor modulator,0,3,0.0
+Thyroid peroxidase inhibitor,0,2,0.0
+Procollagen C-Endopeptidase Inhibitors,0,1,0.0
+Isocitrate dehydrogenase inhibitor,0,3,0.0
+Carbamoyl phosphate synthase activator,0,3,0.0
+TRAIL modulator,0,1,0.0
+Neurotensin receptor antagonist,0,1,0.0
+"Colchicine isomer, non-binder of microtubules",0,1,0.0
+Thyrotropin releasing hormone receptor agonist,0,1,0.0
+Prolactin inhibitor,0,1,0.0
+Inhibitor of translocation of PKCq in T cells,0,2,0.0
+Gluconeogenesis inhibitor,0,1,0.0
+Transferase inhibitor,0,1,0.0
+Carbonic anhydrase activator,0,3,0.0
+Expectorant,0,1,0.0
+Triacylglycerol lipase inhibitor,0,1,0.0
+Troponin activator,0,1,0.0
+S100A9 inhibitor,0,1,0.0
+Vitamin analog,0,1,0.0
+CGMP analog,0,1,0.0
+FtsZ inhibitor,0,2,0.0
+DeltaF508-CFTR Correctors,0,1,0.0
+Noradrenaline uptake inhibitor,0,1,0.0
+Prolyl endopeptidase inhibitor,0,1,0.0
+Estrogenic hormone,0,2,0.0
+Transthyretin stabilizer,0,1,0.0
+Cardiac glycoside,0,1,0.0
+Trypsin inhibitor,0,1,0.0
+Compound used in hepatobiliary scans of the liver,0,1,0.0
+CFMS kinase inhibitor,0,1,0.0
+Vasoconstrictor,0,1,0.0
+IP1 prostacyclin receptor agonist,0,4,0.0
+Isoprenylated protein methylation inhibitor,0,1,0.0
+Porcupine inhibitor,0,1,0.0
+Polyamine biosynthesis inhibitor,0,1,0.0
+Tryptophan hydroxylase inhibitor,0,1,0.0
+Mycobacterium tuberculosis enoyl-[acyl-carrier-protein] reductase [NADH] (inhA) inhibitor,0,2,0.0
+Negative control for D-erythro-MAPP,0,1,0.0
+GGTase inhibitor,0,1,0.0

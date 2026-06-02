@@ -1,0 +1,64 @@
+
+CMap Input Pipeline - Summary Report
+=====================================
+Date: 2026-05-30
+
+QUERY 1 - ALS Inflammation Signature (pathway enrichment)
+  Upregulated genes:   232
+  Downregulated genes: 0
+  Sources: pathway_enrichment (neutrophil degranulation pathway)
+
+QUERY 2 - Multi-omic ALS Signature
+  Upregulated genes:   250
+    Pathway enrichment only:   219
+    Set A multiomics only:     21
+    Network hub only:          0
+    Supported by 2+ sources:   10  (highest confidence UP)
+
+  Downregulated genes: 237
+    Set A multiomics only:     17
+    LCM meta-analysis only:    188
+    Discordant LOW SC only:    12
+    Discordant LOW CTX only:   15
+    Supported by 2+ sources:   5  (highest confidence DOWN)
+
+CONFLICT RESOLUTION
+  Conflicts removed from Query 2: 14
+  Removed genes: ABAT, ANPEP, APEH, CD34, FECH, GGT5, HLA-C, HMGCS1, ICAM1, IMPDH1, ITGB3, NDUFA12, TUBB, VTN
+
+QUERY OVERLAP
+  Genes shared between Q1 UP and Q2 UP: 227
+  Genes unique to Q2 UP (multi-omic addition): 23
+
+TOP 10 MOST SUPPORTED UPREGULATED GENES (Query 2):
+Gene_Symbol                                            source  n_up_sources
+         C3 SetA_multiomics_UP+network_hub+pathway_enrichment             3
+       CYBB SetA_multiomics_UP+network_hub+pathway_enrichment             3
+      ITGB2 SetA_multiomics_UP+network_hub+pathway_enrichment             3
+      PTPRC SetA_multiomics_UP+network_hub+pathway_enrichment             3
+         CP                    SetA_multiomics_UP+network_hub             2
+      ASAH1             SetA_multiomics_UP+pathway_enrichment             2
+   SERPINA3             SetA_multiomics_UP+pathway_enrichment             2
+    HLA-DRA                    SetA_multiomics_UP+network_hub             2
+       CD53             SetA_multiomics_UP+pathway_enrichment             2
+     IQGAP1             SetA_multiomics_UP+pathway_enrichment             2
+
+TOP 10 MOST SUPPORTED DOWNREGULATED GENES (Query 2):
+Gene_Symbol                               source  n_down_sources
+       BCO2   LCM_meta_DOWN+SetA_multiomics_DOWN               2
+    FOXRED1   LCM_meta_DOWN+SetA_multiomics_DOWN               2
+        MPZ discordant_LOW_CTX+discordant_LOW_SC               2
+     MRPL37   LCM_meta_DOWN+SetA_multiomics_DOWN               2
+      TTLL1   LCM_meta_DOWN+SetA_multiomics_DOWN               2
+       ACP2                        LCM_meta_DOWN               1
+    ALDH5A1                 SetA_multiomics_DOWN               1
+     ALKBH6                        LCM_meta_DOWN               1
+     ACTR1A                        LCM_meta_DOWN               1
+      AHSA1                        LCM_meta_DOWN               1
+
+SUBMISSION INSTRUCTIONS
+  Submit CMAP_Query1_input.txt and
+  CMAP_Query2_upregulated.txt + CMAP_Query2_downregulated.txt
+  separately to clue.io L1000 query tool. Compare top negative
+  connectivity score drugs between both queries. Drugs appearing
+  in top hits of both queries are highest priority candidates.

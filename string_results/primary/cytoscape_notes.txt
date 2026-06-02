@@ -1,0 +1,26 @@
+top 10 betweeness centrality:
+HMGCS1
+NDUFA12
+ABAT
+ITGB2
+C3
+CP
+PTPRC
+CYBB
+FECH
+HLA-DRA
+
+top 10 degree:
+
+ITGB2
+PTPRC
+C3
+HLA-DRA
+ICAM1
+ITGB3
+VTN
+ANPEP
+GGT5
+CD34
+
+

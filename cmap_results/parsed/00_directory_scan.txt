@@ -1,0 +1,26 @@
+Scan of cmap_results/
+============================================================
+  query_1_cmap_downloaded\ncs.gct
+  query_1_cmap_downloaded\arfs\TAG\query_result.gct
+  query_1_cmap_downloaded\gsea\TAG\arfs\NORM_CS\gsea_result.gct
+  query_1_cmap_downloaded\gsea\TAG\matrices\cs.gctx
+  query_1_cmap_downloaded\gsea\TAG\matrices\fdr_qvalue.gctx
+  query_1_cmap_downloaded\gsea\TAG\matrices\nes.gctx
+  query_1_cmap_downloaded\matrices\query\cs.gctx
+  query_1_cmap_downloaded\matrices\query\fdr_qvalue.gctx
+  query_1_cmap_downloaded\matrices\query\ncs.gctx
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\ncs.gct
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\arfs\TAG\query_result.gct
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\gsea\TAG\arfs\NORM_CS\gsea_result.gct
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\gsea\TAG\matrices\cs.gctx
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\gsea\TAG\matrices\fdr_qvalue.gctx
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\gsea\TAG\matrices\nes.gctx
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\matrices\query\cs.gctx
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\matrices\query\fdr_qvalue.gctx
+  query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\matrices\query\ncs.gctx
+
+Total GCT/GCTX files: 18
+
+Identified query_result.gct files:
+  Query 1: query_1_cmap_downloaded\arfs\TAG\query_result.gct
+  Query 2: query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\arfs\TAG\query_result.gct

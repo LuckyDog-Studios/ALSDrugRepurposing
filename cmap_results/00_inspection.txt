@@ -1,0 +1,55 @@
+
+--- pathway_enrichment_results/CMap_input_upregulated_genes.csv ---
+  Shape:   (232, 1)
+  Columns: ['Gene_Symbol']
+  Head (3 rows):
+Gene_Symbol
+       A1BG
+     ACTR1B
+      ACTR2
+  N unique gene symbols: 232
+
+--- multiomics_filtering_results/SetA_combined_v2.csv ---
+  Shape:   (57, 17)
+  Columns: ['Gene_Symbol', 'present_in_SC', 'present_in_CTX', 'direction_SC', 'direction_CTX', 'SC_mRNA_logFC', 'SC_LCM_SMD', 'SC_mRNA_source', 'SC_protein_logFC', 'SC_protein_adjPval', 'CTX_mRNA_logFC', 'CTX_mRNA_adjPval', 'CTX_protein_logFC', 'CTX_protein_adjPval', 'evidence_count', 'cross_tissue', 'cross_tissue_discordant']
+  Head (3 rows):
+Gene_Symbol  present_in_SC  present_in_CTX direction_SC direction_CTX  SC_mRNA_logFC  SC_LCM_SMD SC_mRNA_source  SC_protein_logFC  SC_protein_adjPval  CTX_mRNA_logFC  CTX_mRNA_adjPval  CTX_protein_logFC  CTX_protein_adjPval  evidence_count  cross_tissue  cross_tissue_discordant
+       ABAT           True           False         DOWN           NaN      -0.030004         NaN     GEO_merged         -0.815152            0.028703             NaN               NaN                NaN                  NaN               2         False                    False
+      ABCA1           True           False           UP           NaN            NaN       1.089       LCM_meta          0.781995            0.039466             NaN               NaN                NaN                  NaN               2         False                    False
+    ALDH5A1           True           False         DOWN           NaN      -0.151823         NaN     GEO_merged         -0.564526            0.049180             NaN               NaN                NaN                  NaN               2         False                    False
+  N unique gene symbols: 57
+
+--- multiomics_filtering_results/SetE_LCM_FDR05_combined.csv ---
+  Shape:   (342, 4)
+  Columns: ['Gene_Symbol', 'direction', 'LCM_SMD', 'LCM_FDR']
+  Head (3 rows):
+Gene_Symbol direction  LCM_SMD  LCM_FDR
+      C3AR1        UP    1.660 0.001140
+     ELAVL3      DOWN   -1.594 0.020500
+       MADD      DOWN   -1.536 0.000198
+  N unique gene symbols: 342
+
+--- mRNA_protein_corr_results/spinal_cord_correlation_results.csv ---
+  Shape:   (688, 7)
+  Columns: ['Gene_Symbol', 'mRNA_logFC_mean', 'mRNA_adjPval_max', 'protein_logFC', 'protein_adjPval', 'discordance_score', 'quadrant']
+  Head (3 rows):
+Gene_Symbol  mRNA_logFC_mean  mRNA_adjPval_max  protein_logFC  protein_adjPval  discordance_score        quadrant
+      ABCE1         1.641459          0.543197        -1.0100            0.964          -2.651459 discordant_HIGH
+     SEC24C         2.475428          0.850162        -0.0197            0.985          -2.495128       ambiguous
+       DTNA         1.297995          0.079742         0.3460            0.980          -0.951995       ambiguous
+  N unique gene symbols: 688
+
+--- mRNA_protein_corr_results/cortex_correlation_results_v2.csv ---
+  Shape:   (6728, 8)
+  Columns: ['Gene_Symbol', 'mRNA_logFC', 'mRNA_adjPval', 'protein_logFC', 'protein_adjPval', 'protein_significant', 'discordance_score', 'quadrant']
+  Head (3 rows):
+Gene_Symbol  mRNA_logFC  mRNA_adjPval  protein_logFC  protein_adjPval  protein_significant  discordance_score       quadrant
+        MPZ   -1.097920  3.020000e-08       6.226840         0.059166                False           7.324759 discordant_LOW
+     NPEPL1   -0.774506  3.200000e-06       0.194327         0.329935                False           0.968833      ambiguous
+       GBP4   -0.733307  9.950000e-06      -0.083693         0.808817                False           0.649614      ambiguous
+  N unique gene symbols: 6728
+
+--- string_results/primary/cytoscape_notes.txt ---
+  Betweenness centrality genes (10): ['HMGCS1', 'NDUFA12', 'ABAT', 'ITGB2', 'C3', 'CP', 'PTPRC', 'CYBB', 'FECH', 'HLA-DRA']
+  Degree genes (10): ['ITGB2', 'PTPRC', 'C3', 'HLA-DRA', 'ICAM1', 'ITGB3', 'VTN', 'ANPEP', 'GGT5', 'CD34']
+  Hub gene union (16): ['ABAT', 'ANPEP', 'C3', 'CD34', 'CP', 'CYBB', 'FECH', 'GGT5', 'HLA-DRA', 'HMGCS1', 'ICAM1', 'ITGB2', 'ITGB3', 'NDUFA12', 'PTPRC', 'VTN']

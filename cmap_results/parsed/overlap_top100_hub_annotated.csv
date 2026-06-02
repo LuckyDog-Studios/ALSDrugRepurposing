@@ -1,0 +1,32 @@
+pert_iname,Q1_raw_cs,Q2_raw_cs,mean_cs,moa,target_name,Q1_rank,Q2_rank,matched_hubs,hub_target,n_hubs_targeted
+tanaproget,-0.5778,-0.3646,-0.47119999999999995,Progesterone receptor agonist,PGR,1,11,,False,0
+testosterone,-0.5212,-0.3872,-0.4542,Androgen receptor agonist,AR|CYP2C19|CYP2C8|CYP3A5|CYP19A1,4,3,,False,0
+pregnenolone,-0.4966,-0.3589,-0.42774999999999996,Glutamate receptor modulator,PGR|CYP17A1|SULT2B1,7,15,,False,0
+clofarabine,-0.4631,-0.391,-0.42705000000000004,Ribonucleoside reductase inhibitor,RRM1|POLA1|RRM2|SLC22A8|POLD1|POLE|RRM2B,31,2,,False,0
+aloisine,-0.4898,-0.349,-0.4194,CDK inhibitor|CFTR channel agonist|GSK inhibitor,CDK2,12,24,,False,0
+oxiconazole,-0.4787,-0.3571,-0.4179,Bacterial cell wall synthesis inhibitor,,17,19,,False,0
+PHA-767491,-0.4887,-0.3453,-0.41700000000000004,CDC inhibitor,CDK1|RPS6KB1,13,27,,False,0
+BRD-K59573506,-0.4868,-0.3421,-0.41445,Androgen receptor antagonist|Progesterone receptor agonist|Testosterone receptor antagonist,AR|ADORA1,15,36,,False,0
+cytarabine,-0.4717,-0.3557,-0.4137,Ribonucleoside reductase inhibitor,POLA1|POLB|POLD1|POLE,23,21,,False,0
+miglustat,-0.4494,-0.3759,-0.41265,Glycosylation inhibitor,UGCG|GAA|SLC5A4,43,6,,False,0
+emetine,-0.4911,-0.3341,-0.41259999999999997,Protein synthesis inhibitor,RPS2,9,47,,False,0
+vemurafenib,-0.4899,-0.333,-0.41145,RAF inhibitor,BRAF|CYP2C19|CYP3A4|CYP3A5|RAF1,11,48,,False,0
+alisertib,-0.44,-0.3779,-0.40895000000000004,Aurora kinase inhibitor,AURKA,62,4,,False,0
+quercetin,-0.4733,-0.3443,-0.4088,Polar auxin transport inhibitor,PIK3CG|AKR1B1|CYP2C8|EGFR|GAA|MAOA|PTPN1|SCN5A|SIRT1|XDH|ATP5A1|ATP5B|ATP5C1|HCK|HIBCH|PIM1|STK17B|UGT3A1,21,28,,False,0
+AMG-487,-0.4477,-0.3693,-0.4085,CC chemokine receptor antagonist,CXCR3,47,9,,False,0
+GDC-0199,-0.4335,-0.3764,-0.40495000000000003,BCL inhibitor,BCL2,72,5,,False,0
+pindolol,-0.458,-0.3514,-0.4047,Adrenergic receptor antagonist,ADRB1|ADRB2|HTR1A|HTR1B|HTR2A|HTR2B,34,23,,False,0
+AZD-5438,-0.4783,-0.3261,-0.4022,CDK inhibitor,CCNB1|CCNE1|CDK1|CDK2|KCNH2,18,66,,False,0
+indibulin,-0.4442,-0.3576,-0.4009,Tubulin inhibitor,,55,16,,False,0
+PF-02545920,-0.4344,-0.3575,-0.39595,Phosphodiesterase inhibitor,PDE10A,71,17,,False,0
+SGI-1776,-0.4641,-0.3254,-0.39475000000000005,PIM inhibitor,PIM1|FLT3|PIM2|PIM3,30,68,,False,0
+drospirenone,-0.4501,-0.3379,-0.394,Mineralocorticoid receptor antagonist,NR3C2|PGR|AR,42,43,,False,0
+BRD-K76674262,-0.4202,-0.367,-0.3936,Protein synthesis inhibitor,RPL3,97,10,,False,0
+LDN-193189,-0.4231,-0.3571,-0.3901,Serine/threonine kinase inhibitor,ACVR1|BMPR1A,91,18,,False,0
+diclofensine,-0.4505,-0.3252,-0.38785000000000003,Dopamine receptor antagonist,SLC6A3|DRD1|MAOA|MAOB,41,70,,False,0
+GW-843682X,-0.4509,-0.3186,-0.38475000000000004,PLK inhibitor,,40,100,,False,0
+D-4476,-0.4255,-0.3381,-0.38180000000000003,TGF-beta receptor inhibitor,CSNK1A1|CSNK1D|TGFB1,90,42,,False,0
+estradiol,-0.4348,-0.3192,-0.377,Estrogen receptor agonist,ESR1|ESR2|NR1I2|CYP2B6|CYP2C19|CYP2C8|CYP2E1|CYP3A5|CYP3A7|GPER1|KCNMA1,69,95,,False,0
+menadione,-0.4307,-0.322,-0.37635,Mitochondrial inhibitor|Phosphatase inhibitor,PKM|AOX1|BGLAP|F10|F2|F7|F9|GGCX|NQO1|NQO2|PROC|PROS1|PROZ|VKORC1|VKORC1L1,77,83,,False,0
+PD-173074,-0.4262,-0.3235,-0.37485,FGFR inhibitor|VEGFR inhibitor,FGFR1|FGFR3|FGFR2|FGFR4|FLT1|FLT4|KDR|PDGFRA|PDGFRB,88,80,,False,0
+regadenoson,-0.4192,-0.3222,-0.37070000000000003,Adenosine receptor agonist,ADORA2A|ADORA1|ADORA2B|ADORA3,99,82,,False,0

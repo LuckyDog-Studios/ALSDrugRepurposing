@@ -1,0 +1,110 @@
+
+CMap L1000 Analysis Summary -- ALS Drug Repurposing
+=====================================================
+Date: 2026-06-01
+
+GCT FILES USED
+--------------
+  Query 1: cmap_results\query_1_cmap_downloaded\arfs\TAG\query_result.gct
+  Query 2: cmap_results\query_2_cmap_downloaded\my_analysis.sig_queryl1k_tool.6a1addfcdf322700144ad0f1\arfs\TAG\query_result.gct
+
+COMPOUND COUNTS AFTER FILTERING
+---------------------------------
+  Filter step                   Query 1       Query 2
+  Total rows in GCT:           423,422       423,422
+  After trt_cp:                136,460       136,460
+  After is_exemplar_sig==1:    136,460       136,460
+  After qc_pass==1:             81,977        81,977
+  After tas >= 0.2:             31,050        31,050
+  After moa known (named):      13,496        13,496
+
+SCORE RANGES (all compounds, post-filter)
+------------------------------------------
+  Query 1 raw_cs:   -0.5778 to 0.5724
+  Query 1 norm_cs:  -2.3212 to 2.3262
+  Query 2 raw_cs:   -0.4092 to 0.4569
+  Query 2 norm_cs:  -1.7153 to 1.8980
+
+  Query 1: N raw_cs < -0.3: 2813   N raw_cs < -0.2: 11503   N raw_cs > +0.3: 3612
+  Query 2: N raw_cs < -0.3: 506   N raw_cs < -0.2: 6487   N raw_cs > +0.3: 1109
+
+CROSS-QUERY OVERLAP (named drugs, most negative raw_cs)
+--------------------------------------------------------
+  Top 25 overlap:  6 drugs
+  Top 50 overlap:  16 drugs
+  Top 100 overlap: 31 drugs
+
+  Top 50 overlap drugs targeting hub genes: 0
+  Top 100 overlap drugs targeting hub genes: 0
+
+TOP 10 ENRICHED MOA CLASSES -- QUERY 1
+----------------------------------------
+                                      moa_term  count_top50  count_all  enrichment_ratio
+                       Glycosylation inhibitor            1          2          134.9600
+              Testosterone receptor antagonist            1          3           89.9733
+              Adenosylhomocysteinase inhibitor            1          4           67.4800
+                  Glutamate receptor modulator            1          5           53.9840
+         Mineralocorticoid receptor antagonist            1          6           44.9867
+               Polar auxin transport inhibitor            1          6           44.9867
+Non-nucleoside reverse transcriptase inhibitor            1          7           38.5600
+            Ribonucleotide reductase inhibitor            1          8           33.7400
+                          CFTR channel agonist            1          8           33.7400
+                   Protein synthesis inhibitor            6         81           19.9941
+
+TOP 10 ENRICHED MOA CLASSES -- QUERY 2
+----------------------------------------
+                               moa_term  count_top50  count_all  enrichment_ratio
+                Glycosylation inhibitor            1          2          134.9600
+       Testosterone receptor antagonist            1          3           89.9733
+                 Furoquinoline alkaloid            1          4           67.4800
+           Glutamate receptor modulator            1          5           53.9840
+        Polar auxin transport inhibitor            1          6           44.9867
+  Mineralocorticoid receptor antagonist            1          6           44.9867
+                    Prostacyclin analog            1          7           38.5600
+                   CFTR channel agonist            1          8           33.7400
+         Platelet aggregation inhibitor            1         17           15.8776
+Hydroxycarboxylic acid receptor agonist            1         17           15.8776
+
+FINAL DRUG SHORTLIST (16 drugs)
+==============================
+   pert_iname  Q1_raw_cs  Q2_raw_cs  mean_cs  evidence_tier                                                                                         moa matched_hubs  n_hubs_targeted
+   tanaproget    -0.5778    -0.3646  -0.4712              2                                                               Progesterone receptor agonist                             0
+ testosterone    -0.5212    -0.3872  -0.4542              2                                                                   Androgen receptor agonist                             0
+ pregnenolone    -0.4966    -0.3589  -0.4278              2                                                                Glutamate receptor modulator                             0
+  clofarabine    -0.4631    -0.3910  -0.4270              2                                                          Ribonucleoside reductase inhibitor                             0
+     aloisine    -0.4898    -0.3490  -0.4194              2                                            CDK inhibitor|CFTR channel agonist|GSK inhibitor                             0
+  oxiconazole    -0.4787    -0.3571  -0.4179              2                                                     Bacterial cell wall synthesis inhibitor                             0
+   PHA-767491    -0.4887    -0.3453  -0.4170              2                                                                               CDC inhibitor                             0
+BRD-K59573506    -0.4868    -0.3421  -0.4144              2 Androgen receptor antagonist|Progesterone receptor agonist|Testosterone receptor antagonist                             0
+   cytarabine    -0.4717    -0.3557  -0.4137              2                                                          Ribonucleoside reductase inhibitor                             0
+    miglustat    -0.4494    -0.3759  -0.4126              2                                                                     Glycosylation inhibitor                             0
+      emetine    -0.4911    -0.3341  -0.4126              2                                                                 Protein synthesis inhibitor                             0
+  vemurafenib    -0.4899    -0.3330  -0.4114              2                                                                               RAF inhibitor                             0
+    quercetin    -0.4733    -0.3443  -0.4088              2                                                             Polar auxin transport inhibitor                             0
+      AMG-487    -0.4477    -0.3693  -0.4085              2                                                            CC chemokine receptor antagonist                             0
+     pindolol    -0.4580    -0.3514  -0.4047              2                                                              Adrenergic receptor antagonist                             0
+ drospirenone    -0.4501    -0.3379  -0.3940              2                                                       Mineralocorticoid receptor antagonist                             0
+
+TIER BREAKDOWN
+--------------
+  Tier 2: 16
+
+IMPORTANT NOTES
+---------------
+All shortlisted drugs require manual literature review on PubMed for
+existing ALS, motor neuron disease, or neurodegeneration evidence before
+final reporting. CMap profiles were generated in cancer cell lines --
+connectivity scores indicate transcriptional reversal in those contexts
+and require biological validation in motor neuron models.
+
+Evidence tiers:
+  Tier 1 = top 50 of BOTH queries AND targets a STRING hub gene (highest confidence)
+  Tier 2 = top 50 of BOTH queries (strong cross-query signal)
+  Tier 3 = top 100 of BOTH queries AND targets a STRING hub gene (hub-supported)
+
+als_literature_flag = CHECK for all entries -- perform manual PubMed search.
+
+Submit drugs for further validation:
+  - iNeuron or iPSC-derived motor neuron transcriptomic validation
+  - ALS mouse model literature check (SOD1, TDP-43, FUS)
+  - Check FDA approval status and CNS penetrance
